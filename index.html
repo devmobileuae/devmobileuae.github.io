@@ -2,174 +2,248 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pix App Privacy Policy</title>
+  <title>Privacy Policies – devmobileuae</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy Policy for Pix - Real-time Image Pixelization & Styles App">
+  <meta name="description" content="Privacy Policies for devmobileuae apps">
   <style>
-    :root {
-      --bg: #181a20;
-      --card: #23262f;
-      --text: #f2f2f7;
-      --accent: #30a8ff;
-      --muted: #8b949e;
-      --radius: 1.25rem;
-      --max-width: 640px;
-    }
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f6f8fa;
-        --card: #fff;
-        --text: #222;
-        --accent: #0078d4;
-        --muted: #666;
-      }
-    }
     html, body {
       margin: 0;
       padding: 0;
       min-height: 100%;
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 1.08rem;
-      letter-spacing: 0.01em;
-      line-height: 1.65;
+      background: #fff;
+      color: #222;
+      font-family: system-ui, 'Segoe UI', Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
     }
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       min-height: 100vh;
-      justify-content: center;
-      padding: 1.5rem;
     }
-    .container {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: 0 2px 24px 0 rgba(48,168,255,0.07);
-      max-width: var(--max-width);
-      width: 100%;
-      padding: 2rem 1.5rem;
-      margin: 2rem 0;
+    #root {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 1.5rem 0.5rem 1rem 0.5rem;
+    }
+    .card {
+      background: #f5f5f7;
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      padding: 1.1rem 1rem;
+      margin-bottom: 1.4rem;
     }
     h1 {
       text-align: center;
-      font-size: 2.15rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.25em;
-      color: var(--accent);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 0 0 0.7rem 0;
+      color: #111;
     }
     h2 {
-      font-size: 1.2rem;
-      margin-top: 2em;
-      margin-bottom: 0.7em;
-      color: var(--accent);
-      font-weight: 700;
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin: 1.15rem 0 0.4rem 0;
+      color: #111;
     }
-    p, ul, li {
-      color: var(--text);
+    .list {
+      margin: 1.7em 0 1em 0;
+      padding: 0;
+      list-style: none;
     }
-    ul {
-      padding-left: 1.2em;
-      margin: 1em 0;
-    }
-    a {
-      color: var(--accent);
+    .entry {
+      margin: 0 0 1em 0;
+      font-size: 1.06em;
+      background: #fff;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      padding: 0.9em 1em;
+      cursor: pointer;
+      transition: background 0.2s;
+      color: #111;
       text-decoration: none;
-      border-bottom: 1px dashed var(--accent);
-      transition: border 0.2s;
+      display: block;
     }
-    a:hover {
-      border-bottom: 1px solid var(--accent);
+    .entry:hover {
+      background: #ececec;
+    }
+    .back-btn {
+      margin: 1.2em 0 0.2em 0;
+      background: none;
+      color: #111;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      padding: 0.4em 1em;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    .back-btn:hover {
+      background: #f5f5f7;
     }
     .footer {
       text-align: center;
-      color: var(--muted);
-      font-size: 0.97em;
-      margin: 2em 0 0 0;
+      color: #777;
+      font-size: 0.98em;
+      margin: 1.5em 0 0 0;
+      letter-spacing: 0.01em;
     }
     @media (max-width: 600px) {
-      .container {
-        padding: 1.2rem 0.7rem;
+      #root {
+        padding: 0.7rem 0.2rem 0.6rem 0.2rem;
+      }
+      .card {
+        padding: 0.8rem 0.6rem;
       }
       h1 {
-        font-size: 1.32rem;
+        font-size: 1.1rem;
       }
       h2 {
-        font-size: 1.04rem;
+        font-size: 0.98rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Pix App Privacy Policy</h1>
-    <p><b>Effective Date:</b> 28 May 2025</p>
-    <p>
-      Thank you for using <strong>Pix</strong>, a real-time image pixelization and styles app for Android, created and operated by an individual developer. Your privacy is important. This Privacy Policy explains how your data is handled in the Pix app.
-    </p>
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script>
+    // --- Privacy policies content as React components ---
+    const policies = {
+      pix: {
+        title: "Pix App",
+        url: "/pix",
+        content: (
+          <>
+            <h1>Pix App Privacy Policy</h1>
+            <p><b>Effective Date:</b> 28 May 2025</p>
+            <p>
+              Thank you for using <strong>Pix</strong>, a real-time image pixelization and styles app for Android, created and operated by an individual developer. This Privacy Policy explains how your data is handled in the Pix app.
+            </p>
+            <h2>Authentication and Account Information</h2>
+            <p>
+              Pix offers sign-in via Google or email and password, using <a href="https://firebase.google.com/products/auth" target="_blank" rel="noopener">Firebase Authentication</a> as a secure authentication provider. When you sign in, basic information such as your email address, display name, and profile picture (for Google Sign-In) is collected and securely managed by Firebase.
+            </p>
+            <ul>
+              <li>Your authentication data is used solely for providing access to app features and subscriptions.</li>
+              <li>Your password (if using email + password) is never visible to the app developer and is securely stored by Firebase.</li>
+              <li>Your account information is not shared with any third parties or used for marketing purposes.</li>
+              <li>For more information, see <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a>.</li>
+            </ul>
+            <h2>Account Deletion</h2>
+            <p>
+              You may delete your Pix account at any time:
+            </p>
+            <ul>
+              <li>Via the app’s Profile page, using the “Delete Account” option (if available in your version).</li>
+              <li>Or by sending a deletion request from your registered email address to <a href="mailto:devmobileuae@gmail.com">devmobileuae@gmail.com</a>. Your account and associated authentication information will be permanently deleted from Firebase within 30 days of your request.</li>
+            </ul>
+            <p>
+              After your account is deleted, your authentication information (email, display name, and profile picture) will be removed and cannot be recovered. This action is permanent.
+            </p>
+            <h2>Information Collection</h2>
+            <ul>
+              <li><b>Images:</b> Your photos are processed locally and never leave your device.</li>
+              <li><b>Analytics:</b> Pix may use anonymous analytics (such as Google Play Console statistics) to understand general app usage (e.g., installs, crashes). No personal or identifying data is collected for analytics.</li>
+              <li><b>Payments:</b> Subscriptions and payments are managed securely through Google Play. Pix does not process or store your payment details.</li>
+            </ul>
+            <h2>Data Sharing</h2>
+            <p>
+              Pix does not share your data with third parties. Your images, edits, and any app usage data remain private.
+            </p>
+            <h2>Permissions</h2>
+            <p>
+              Pix requests permission to access your camera and photos only to allow you to pixelate images and apply styles. These permissions are used solely for app functionality.
+            </p>
+            <h2>Children's Privacy</h2>
+            <p>
+              Pix is not intended for children under 13. No information is knowingly collected from children.
+            </p>
+            <h2>Changes to Policy</h2>
+            <p>
+              This policy may be updated in the future. Significant changes will be announced in the app or on this page.
+            </p>
+            <h2>Contact</h2>
+            <p>
+              For questions about this Privacy Policy or how your data is handled, contact: <a href="mailto:alex.pix.app@gmail.com">alex.pix.app@gmail.com</a>
+            </p>
+          </>
+        ),
+      },
+      // Example for next app:
+      // otherapp: {
+      //   title: "OtherApp",
+      //   url: "/otherapp",
+      //   content: <div>Other App Privacy Policy...</div>,
+      // }
+    };
 
-    <h2>Authentication and Account Information</h2>
-    <p>
-      Pix offers sign-in via Google or email and password, using <a href="https://firebase.google.com/products/auth" target="_blank" rel="noopener">Firebase Authentication</a> as a secure authentication provider. When you sign in, certain basic information such as your email address, display name, and profile picture (for Google Sign-In) is collected and securely managed by Firebase.
-    </p>
-    <ul>
-      <li>Your authentication data is used solely for providing access to app features and subscriptions.</li>
-      <li>Your password (if using email + password) is never visible to the app developer and is securely stored by Firebase.</li>
-      <li>Your account information is <b>not</b> shared with any third parties or used for marketing purposes.</li>
-      <li>For more information, see <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a>.</li>
-    </ul>
+    function usePolicyRouting() {
+      const [route, setRoute] = React.useState(() => {
+        const path = window.location.pathname.replace(/\/+$/, "");
+        if (path === "" || path === "/") return null;
+        // match /pix, /otherapp
+        const key = Object.keys(policies).find(k => path.endsWith(policies[k].url));
+        return key || null;
+      });
 
-    <h2>Account Deletion</h2>
-    <p>
-      You may delete your Pix account at any time:
-    </p>
-    <ul>
-      <li>Via the app’s Profile page, using the “Delete Account” option (if available in your version).</li>
-      <li>Or by sending a deletion request from your registered email address to <a href="mailto:devmobileuae@gmail.com">devmobileuae@gmail.com</a>. Your account and associated authentication information will be permanently deleted from Firebase within 30 days of your request.</li>
-    </ul>
-    <p>
-      After your account is deleted, your authentication information (email, display name, and profile picture) will be removed and cannot be recovered. This action is permanent.
-    </p>
+      React.useEffect(() => {
+        const handler = () => {
+          const path = window.location.pathname.replace(/\/+$/, "");
+          if (path === "" || path === "/") setRoute(null);
+          else {
+            const key = Object.keys(policies).find(k => path.endsWith(policies[k].url));
+            setRoute(key || null);
+          }
+        };
+        window.addEventListener("popstate", handler);
+        return () => window.removeEventListener("popstate", handler);
+      }, []);
 
-    <h2>Information Collection</h2>
-    <p>
-      <strong>Pix</strong> does <b>not</b> collect or store any personal data, images, or user content on external servers. All image processing happens on your device in real time.
-    </p>
-    <ul>
-      <li><b>Images:</b> Your photos are processed locally and never leave your device.</li>
-      <li><b>Analytics:</b> Pix may use anonymous analytics (such as Google Play Console statistics) to understand general app usage (e.g., installs, crashes). No personal or identifying data is collected.</li>
-      <li><b>Payments:</b> Subscriptions and payments are managed securely through Google Play. Pix does not process or store your payment details.</li>
-    </ul>
+      const goHome = React.useCallback(() => {
+        window.history.pushState({}, "", "/");
+        setRoute(null);
+      }, []);
+      const goPolicy = React.useCallback((key) => {
+        window.history.pushState({}, "", policies[key].url);
+        setRoute(key);
+      }, []);
+      return {route, goHome, goPolicy};
+    }
 
-    <h2>Data Sharing</h2>
-    <p>
-      <strong>Pix</strong> does not share your data with third parties. Your images, edits, and any app usage data remain private.
-    </p>
+    function App() {
+      const {route, goHome, goPolicy} = usePolicyRouting();
 
-    <h2>Permissions</h2>
-    <p>
-      Pix requests permission to access your camera and photos only to allow you to pixelate images and apply styles. These permissions are used solely for app functionality.
-    </p>
+      if (!route) {
+        return (
+          <div>
+            <h1>Privacy Policies</h1>
+            <ul className="list">
+              {Object.entries(policies).map(([key, {title, url}]) => (
+                <li key={key}>
+                  <a className="entry" href={url} onClick={e => { e.preventDefault(); goPolicy(key); }}>{title}</a>
+                </li>
+              ))}
+            </ul>
+            <div className="footer">
+              &copy; 2025 devmobileuae. For questions, contact <a href="mailto:alex.pix.app@gmail.com">alex.pix.app@gmail.com</a>
+            </div>
+          </div>
+        );
+      } else {
+        const {title, content} = policies[route];
+        return (
+          <div className="card">
+            <button className="back-btn" onClick={goHome}>&larr; Back to list</button>
+            {content}
+            <div className="footer" style={{marginTop:24}}>
+              <a href="/" onClick={e => {e.preventDefault(); goHome();}}>&larr; Back to all privacy policies</a>
+            </div>
+          </div>
+        );
+      }
+    }
 
-    <h2>Children's Privacy</h2>
-    <p>
-      Pix is not intended for children under 13. No information is knowingly collected from children.
-    </p>
-
-    <h2>Changes to Policy</h2>
-    <p>
-      This policy may be updated in the future. Significant changes will be announced in the app or on this page.
-    </p>
-
-    <h2>Contact</h2>
-    <p>
-      If you have questions about this Privacy Policy or how your data is handled, contact: <a href="mailto:alex.pix.app@gmail.com">alex.pix.app@gmail.com</a>
-    </p>
-  </div>
-  <div class="footer">
-    &copy; 2025 Pix App. Made with &#10084; by an indie developer.
-  </div>
+    ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+  </script>
 </body>
 </html>
