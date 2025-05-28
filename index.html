@@ -4,19 +4,24 @@
   <meta charset="UTF-8">
   <title>Privacy Policies – devmobileuae</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy Policies for devmobileuae apps">
+  <meta name="description" content="Privacy Policies for devmobileuae indie apps">
+  <!-- Indie/developer vibe font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fafbfc;
+      --bg: #fcfdff;
       --card: #fff;
-      --text: #22272e;
-      --muted: #8892a4;
-      --border: #d4d6da;
-      --accent: #111c2b;
-      --accent-bg: #f1f4f8;
-      --radius: 10px;
-      --max-width: 640px;
-      --shadow: 0 2px 8px 0 rgba(17,28,43,0.03);
+      --text: #232427;
+      --muted: #7d8690;
+      --border: #e1e4ea;
+      --accent: #49b7f8;
+      --accent-dark: #2090d6;
+      --accent-bg: #f2f9fd;
+      --radius: 13px;
+      --max-width: 670px;
+      --shadow: 0 1px 10px 0 rgba(73,183,248,0.06);
+      --mono: 'JetBrains Mono', 'Fira Mono', monospace;
+      --sans: 'Fira Sans', 'Inter', 'Segoe UI', Arial, sans-serif;
     }
     html, body {
       margin: 0;
@@ -24,9 +29,9 @@
       min-height: 100%;
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', system-ui, 'Segoe UI', Arial, sans-serif;
+      font-family: var(--sans);
       font-size: 1rem;
-      line-height: 1.55;
+      line-height: 1.58;
       -webkit-font-smoothing: antialiased;
     }
     body {
@@ -35,81 +40,101 @@
     #root {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 1.8rem 0.7rem 1.2rem 0.7rem;
+      padding: 2rem 0.8rem 1.5rem 0.8rem;
     }
     .card {
       background: var(--card);
       border-radius: var(--radius);
-      border: 1px solid var(--border);
+      border: 1.3px solid var(--border);
       box-shadow: var(--shadow);
-      padding: 1.25rem 1.1rem 1.1rem 1.1rem;
+      padding: 1.35rem 1.25rem 1.1rem 1.25rem;
       margin-bottom: 1.6rem;
-      transition: box-shadow 0.15s;
+      transition: box-shadow 0.13s;
     }
     h1, h2 {
-      color: var(--accent);
-      font-family: inherit;
+      color: var(--accent-dark);
+      font-family: var(--sans);
       letter-spacing: -0.01em;
+      margin-top: 0;
     }
     h1 {
       text-align: center;
-      font-size: 1.43rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      margin: 0 0 0.65rem 0;
+      margin-bottom: 0.5rem;
+      font-family: var(--mono);
     }
     h2 {
-      font-size: 1.08rem;
+      font-size: 1.13rem;
       font-weight: 700;
-      margin: 1.2rem 0 0.45rem 0;
+      margin: 1.18rem 0 0.4rem 0;
     }
     .list {
-      margin: 2.1em 0 1.2em 0;
+      margin: 2.3em 0 1.1em 0;
       padding: 0;
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.75em;
+      gap: 0.7em;
     }
     .entry {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--accent-bg);
+      border: 1.2px solid var(--border);
       border-radius: var(--radius);
-      padding: 1em 1.1em;
-      font-size: 1.06em;
-      color: var(--accent);
+      padding: 1.06em 1.2em;
+      font-size: 1.08em;
+      color: var(--accent-dark);
+      font-family: var(--mono);
       font-weight: 600;
+      letter-spacing: 0.01em;
       cursor: pointer;
-      transition: background 0.13s, color 0.13s, border 0.13s;
-      box-shadow: var(--shadow);
+      transition: background 0.16s, color 0.14s, border 0.14s;
       text-decoration: none;
       display: block;
       outline: none;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .entry:after {
+      content: '→';
+      float: right;
+      font-size: 1em;
+      color: var(--muted);
+      opacity: 0.6;
+      margin-left: 0.4em;
+      font-family: var(--mono);
+      transition: color 0.16s;
     }
     .entry:hover, .entry:focus-visible {
-      background: var(--accent-bg);
-      color: var(--text);
+      background: #eaf7fc;
+      color: var(--accent);
       border-color: var(--accent);
     }
-    .back-btn {
-      margin: 1.2em 0 0.2em 0;
-      background: var(--accent-bg);
+    .entry:hover:after, .entry:focus-visible:after {
       color: var(--accent);
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      padding: 0.44em 1.1em;
+    }
+    .back-btn {
+      margin: 1.1em 0 0.4em 0;
+      background: var(--accent-bg);
+      color: var(--accent-dark);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 0.38em 1em;
       font-size: 1em;
-      font-weight: 500;
+      font-family: var(--mono);
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.16s, color 0.16s, border 0.16s;
+      box-shadow: none;
+      transition: background 0.15s, color 0.15s, border 0.13s;
     }
     .back-btn:hover, .back-btn:focus-visible {
       background: var(--accent);
       color: #fff;
-      border-color: var(--accent);
+      border-color: var(--accent-dark);
     }
     ul, p, li {
       color: var(--text);
-      margin: 0.17em 0 0.6em 0;
+      margin: 0.13em 0 0.6em 0;
       font-size: 1em;
     }
     ul {
@@ -117,37 +142,43 @@
       margin-bottom: 0.5em;
     }
     li {
-      margin: 0 0 0.2em 0;
+      margin: 0 0 0.18em 0;
     }
     a {
-      color: var(--accent);
+      color: var(--accent-dark);
       text-decoration: underline;
       word-break: break-all;
       transition: color 0.13s;
     }
     a:hover, a:focus-visible {
-      color: #3573e0;
+      color: var(--accent);
     }
     .footer {
       text-align: center;
       color: var(--muted);
-      font-size: 0.98em;
-      margin: 1.65em 0 0 0;
+      font-size: 0.97em;
+      margin: 2.3em 0 0 0;
       letter-spacing: 0.01em;
       font-weight: 400;
+      max-width: 100vw;
+      word-break: break-word;
+      white-space: pre-line;
+      line-height: 1.5;
+      padding: 0 0.5em;
+      display: block;
     }
     @media (max-width: 600px) {
       #root {
-        padding: 0.8rem 0.17rem 0.5rem 0.17rem;
+        padding: 1rem 0.07rem 0.8rem 0.07rem;
       }
       .card {
-        padding: 0.8rem 0.55rem 0.7rem 0.55rem;
+        padding: 0.85rem 0.39rem 0.55rem 0.39rem;
       }
       h1 {
-        font-size: 1.13rem;
+        font-size: 1.07rem;
       }
       h2 {
-        font-size: 0.99rem;
+        font-size: 0.97rem;
       }
     }
   </style>
@@ -157,17 +188,21 @@
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script>
+    // Use hash-based routing to avoid GitHub Pages 404s
+    function getRouteFromHash() {
+      return (window.location.hash || "").replace(/^#\/?/, "");
+    }
     const policies = {
       pix: {
         title: "Pix App",
-        url: "/pix",
+        url: "pix",
         content: React.createElement(React.Fragment, null,
           React.createElement("h1", null, "Pix App Privacy Policy"),
           React.createElement("p", null, React.createElement("b", null, "Effective Date:"), " 28 May 2025"),
           React.createElement("p", null,
             "Thank you for using ",
             React.createElement("strong", null, "Pix"),
-            ", a real-time image pixelization and styles app for Android, created and operated by an individual developer. This Privacy Policy explains how your data is handled in the Pix app."
+            ", a real-time image pixelization and styles app for Android, created and operated by an indie developer. This Privacy Policy explains how your data is handled in the Pix app."
           ),
           React.createElement("h2", null, "Authentication and Account Information"),
           React.createElement("p", null,
@@ -199,6 +234,10 @@
             React.createElement("li", null, React.createElement("b", null, "Analytics:"), " Pix may use anonymous analytics (such as Google Play Console statistics) to understand general app usage (e.g., installs, crashes). No personal or identifying data is collected for analytics."),
             React.createElement("li", null, React.createElement("b", null, "Payments:"), " Subscriptions and payments are managed securely through Google Play. Pix does not process or store your payment details.")
           ),
+          React.createElement("h2", null, "Sharing Content"),
+          React.createElement("p", null,
+            "Pix allows you to share images and creations directly to social networks or other apps using your device's standard sharing features. The app does not upload your shared content to its own servers. When you choose to share, your images or creations are sent only to the apps and services you select."
+          ),
           React.createElement("h2", null, "Data Sharing"),
           React.createElement("p", null,
             "Pix does not share your data with third parties. Your images, edits, and any app usage data remain private."
@@ -222,38 +261,23 @@
           )
         )
       },
-      // Add more apps here if needed.
+      // Add more apps here if needed!
     };
 
     function usePolicyRouting() {
-      const [route, setRoute] = React.useState(() => {
-        const path = window.location.pathname.replace(/\/+$/, "");
-        if (path === "" || path === "/") return null;
-        // match /pix, /otherapp
-        const key = Object.keys(policies).find(k => path.endsWith(policies[k].url));
-        return key || null;
-      });
+      const [route, setRoute] = React.useState(getRouteFromHash());
 
       React.useEffect(() => {
-        const handler = () => {
-          const path = window.location.pathname.replace(/\/+$/, "");
-          if (path === "" || path === "/") setRoute(null);
-          else {
-            const key = Object.keys(policies).find(k => path.endsWith(policies[k].url));
-            setRoute(key || null);
-          }
-        };
-        window.addEventListener("popstate", handler);
-        return () => window.removeEventListener("popstate", handler);
+        const handler = () => setRoute(getRouteFromHash());
+        window.addEventListener("hashchange", handler);
+        return () => window.removeEventListener("hashchange", handler);
       }, []);
 
       const goHome = React.useCallback(() => {
-        window.history.pushState({}, "", "/");
-        setRoute(null);
+        window.location.hash = '';
       }, []);
       const goPolicy = React.useCallback((key) => {
-        window.history.pushState({}, "", policies[key].url);
-        setRoute(key);
+        window.location.hash = '/' + policies[key].url;
       }, []);
       return {route, goHome, goPolicy};
     }
@@ -270,14 +294,14 @@
                 React.createElement("li", {key},
                   React.createElement("a", {
                     className:"entry",
-                    href:url,
+                    href:`#/${url}`,
                     onClick: e => { e.preventDefault(); goPolicy(key); }
                   }, title)
                 )
               )
             ),
             React.createElement("div", {className:"footer"},
-              "© 2025 devmobileuae. For questions, contact ",
+              "© 2025 devmobileuae\nFor questions, contact ",
               React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
             )
           )
@@ -290,7 +314,7 @@
             content,
             React.createElement("div", {className:"footer", style:{marginTop:24}},
               React.createElement("a", {
-                href:"/",
+                href:"#/",
                 onClick: e => {e.preventDefault(); goHome();}
               }, "← Back to all privacy policies")
             )
