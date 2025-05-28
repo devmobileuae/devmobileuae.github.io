@@ -6,98 +6,148 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Privacy Policies for devmobileuae apps">
   <style>
+    :root {
+      --bg: #fafbfc;
+      --card: #fff;
+      --text: #22272e;
+      --muted: #8892a4;
+      --border: #d4d6da;
+      --accent: #111c2b;
+      --accent-bg: #f1f4f8;
+      --radius: 10px;
+      --max-width: 640px;
+      --shadow: 0 2px 8px 0 rgba(17,28,43,0.03);
+    }
     html, body {
       margin: 0;
       padding: 0;
       min-height: 100%;
-      background: #fff;
-      color: #222;
-      font-family: system-ui, 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, 'Segoe UI', Arial, sans-serif;
       font-size: 1rem;
-      line-height: 1.5;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
     }
     body {
       min-height: 100vh;
     }
     #root {
-      max-width: 620px;
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 1.5rem 0.5rem 1rem 0.5rem;
+      padding: 1.8rem 0.7rem 1.2rem 0.7rem;
     }
     .card {
-      background: #f5f5f7;
-      border-radius: 8px;
-      border: 1px solid #bbb;
-      padding: 1.1rem 1rem;
-      margin-bottom: 1.4rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.1rem 1.1rem 1.1rem;
+      margin-bottom: 1.6rem;
+      transition: box-shadow 0.15s;
+    }
+    h1, h2 {
+      color: var(--accent);
+      font-family: inherit;
+      letter-spacing: -0.01em;
     }
     h1 {
       text-align: center;
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin: 0 0 0.7rem 0;
-      color: #111;
+      font-size: 1.43rem;
+      font-weight: 800;
+      margin: 0 0 0.65rem 0;
     }
     h2 {
-      font-size: 1.02rem;
-      font-weight: 600;
-      margin: 1.15rem 0 0.4rem 0;
-      color: #111;
+      font-size: 1.08rem;
+      font-weight: 700;
+      margin: 1.2rem 0 0.45rem 0;
     }
     .list {
-      margin: 1.7em 0 1em 0;
+      margin: 2.1em 0 1.2em 0;
       padding: 0;
       list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
     }
     .entry {
-      margin: 0 0 1em 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1em 1.1em;
       font-size: 1.06em;
-      background: #fff;
-      border: 1px solid #bbb;
-      border-radius: 8px;
-      padding: 0.9em 1em;
+      color: var(--accent);
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s;
-      color: #111;
+      transition: background 0.13s, color 0.13s, border 0.13s;
+      box-shadow: var(--shadow);
       text-decoration: none;
       display: block;
+      outline: none;
     }
-    .entry:hover {
-      background: #ececec;
+    .entry:hover, .entry:focus-visible {
+      background: var(--accent-bg);
+      color: var(--text);
+      border-color: var(--accent);
     }
     .back-btn {
       margin: 1.2em 0 0.2em 0;
-      background: none;
-      color: #111;
-      border: 1px solid #bbb;
-      border-radius: 6px;
-      padding: 0.4em 1em;
+      background: var(--accent-bg);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 0.44em 1.1em;
       font-size: 1em;
+      font-weight: 500;
       cursor: pointer;
-      transition: background 0.18s;
+      transition: background 0.16s, color 0.16s, border 0.16s;
     }
-    .back-btn:hover {
-      background: #f5f5f7;
+    .back-btn:hover, .back-btn:focus-visible {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    ul, p, li {
+      color: var(--text);
+      margin: 0.17em 0 0.6em 0;
+      font-size: 1em;
+    }
+    ul {
+      padding-left: 1.17em;
+      margin-bottom: 0.5em;
+    }
+    li {
+      margin: 0 0 0.2em 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      word-break: break-all;
+      transition: color 0.13s;
+    }
+    a:hover, a:focus-visible {
+      color: #3573e0;
     }
     .footer {
       text-align: center;
-      color: #777;
+      color: var(--muted);
       font-size: 0.98em;
-      margin: 1.5em 0 0 0;
+      margin: 1.65em 0 0 0;
       letter-spacing: 0.01em;
+      font-weight: 400;
     }
     @media (max-width: 600px) {
       #root {
-        padding: 0.7rem 0.2rem 0.6rem 0.2rem;
+        padding: 0.8rem 0.17rem 0.5rem 0.17rem;
       }
       .card {
-        padding: 0.8rem 0.6rem;
+        padding: 0.8rem 0.55rem 0.7rem 0.55rem;
       }
       h1 {
-        font-size: 1.1rem;
+        font-size: 1.13rem;
       }
       h2 {
-        font-size: 0.98rem;
+        font-size: 0.99rem;
       }
     }
   </style>
@@ -107,7 +157,6 @@
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script>
-    // ---- All privacy policy content in plain React.createElement calls (no JSX!) ----
     const policies = {
       pix: {
         title: "Pix App",
@@ -169,7 +218,7 @@
           React.createElement("h2", null, "Contact"),
           React.createElement("p", null,
             "For questions about this Privacy Policy or how your data is handled, contact: ",
-            React.createElement("a", {href:"mailto:alex.pix.app@gmail.com"}, "alex.pix.app@gmail.com")
+            React.createElement("a", {href:"mailto:devmobileuae@gmail.com"}, "devmobileuae@gmail.com")
           )
         )
       },
