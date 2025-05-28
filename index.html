@@ -107,74 +107,73 @@
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script>
-    // --- Privacy policies content as React components ---
+    // ---- All privacy policy content in plain React.createElement calls (no JSX!) ----
     const policies = {
       pix: {
         title: "Pix App",
         url: "/pix",
-        content: (
-          <>
-            <h1>Pix App Privacy Policy</h1>
-            <p><b>Effective Date:</b> 28 May 2025</p>
-            <p>
-              Thank you for using <strong>Pix</strong>, a real-time image pixelization and styles app for Android, created and operated by an individual developer. This Privacy Policy explains how your data is handled in the Pix app.
-            </p>
-            <h2>Authentication and Account Information</h2>
-            <p>
-              Pix offers sign-in via Google or email and password, using <a href="https://firebase.google.com/products/auth" target="_blank" rel="noopener">Firebase Authentication</a> as a secure authentication provider. When you sign in, basic information such as your email address, display name, and profile picture (for Google Sign-In) is collected and securely managed by Firebase.
-            </p>
-            <ul>
-              <li>Your authentication data is used solely for providing access to app features and subscriptions.</li>
-              <li>Your password (if using email + password) is never visible to the app developer and is securely stored by Firebase.</li>
-              <li>Your account information is not shared with any third parties or used for marketing purposes.</li>
-              <li>For more information, see <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a>.</li>
-            </ul>
-            <h2>Account Deletion</h2>
-            <p>
-              You may delete your Pix account at any time:
-            </p>
-            <ul>
-              <li>Via the app’s Profile page, using the “Delete Account” option (if available in your version).</li>
-              <li>Or by sending a deletion request from your registered email address to <a href="mailto:devmobileuae@gmail.com">devmobileuae@gmail.com</a>. Your account and associated authentication information will be permanently deleted from Firebase within 30 days of your request.</li>
-            </ul>
-            <p>
-              After your account is deleted, your authentication information (email, display name, and profile picture) will be removed and cannot be recovered. This action is permanent.
-            </p>
-            <h2>Information Collection</h2>
-            <ul>
-              <li><b>Images:</b> Your photos are processed locally and never leave your device.</li>
-              <li><b>Analytics:</b> Pix may use anonymous analytics (such as Google Play Console statistics) to understand general app usage (e.g., installs, crashes). No personal or identifying data is collected for analytics.</li>
-              <li><b>Payments:</b> Subscriptions and payments are managed securely through Google Play. Pix does not process or store your payment details.</li>
-            </ul>
-            <h2>Data Sharing</h2>
-            <p>
-              Pix does not share your data with third parties. Your images, edits, and any app usage data remain private.
-            </p>
-            <h2>Permissions</h2>
-            <p>
-              Pix requests permission to access your camera and photos only to allow you to pixelate images and apply styles. These permissions are used solely for app functionality.
-            </p>
-            <h2>Children's Privacy</h2>
-            <p>
-              Pix is not intended for children under 13. No information is knowingly collected from children.
-            </p>
-            <h2>Changes to Policy</h2>
-            <p>
-              This policy may be updated in the future. Significant changes will be announced in the app or on this page.
-            </p>
-            <h2>Contact</h2>
-            <p>
-              For questions about this Privacy Policy or how your data is handled, contact: <a href="mailto:alex.pix.app@gmail.com">alex.pix.app@gmail.com</a>
-            </p>
-          </>
-        ),
+        content: React.createElement(React.Fragment, null,
+          React.createElement("h1", null, "Pix App Privacy Policy"),
+          React.createElement("p", null, React.createElement("b", null, "Effective Date:"), " 28 May 2025"),
+          React.createElement("p", null,
+            "Thank you for using ",
+            React.createElement("strong", null, "Pix"),
+            ", a real-time image pixelization and styles app for Android, created and operated by an individual developer. This Privacy Policy explains how your data is handled in the Pix app."
+          ),
+          React.createElement("h2", null, "Authentication and Account Information"),
+          React.createElement("p", null,
+            "Pix offers sign-in via Google or email and password, using ",
+            React.createElement("a", {href:"https://firebase.google.com/products/auth", target:"_blank", rel:"noopener"}, "Firebase Authentication"),
+            " as a secure authentication provider. When you sign in, basic information such as your email address, display name, and profile picture (for Google Sign-In) is collected and securely managed by Firebase."
+          ),
+          React.createElement("ul", null,
+            React.createElement("li", null, "Your authentication data is used solely for providing access to app features and subscriptions."),
+            React.createElement("li", null, "Your password (if using email + password) is never visible to the app developer and is securely stored by Firebase."),
+            React.createElement("li", null, "Your account information is not shared with any third parties or used for marketing purposes."),
+            React.createElement("li", null, "For more information, see ",
+              React.createElement("a", {href:"https://firebase.google.com/support/privacy", target:"_blank", rel:"noopener"}, "Firebase Privacy and Security"), ".")
+          ),
+          React.createElement("h2", null, "Account Deletion"),
+          React.createElement("p", null, "You may delete your Pix account at any time:"),
+          React.createElement("ul", null,
+            React.createElement("li", null, "Via the app’s Profile page, using the “Delete Account” option (if available in your version)."),
+            React.createElement("li", null, "Or by sending a deletion request from your registered email address to ",
+              React.createElement("a", {href:"mailto:devmobileuae@gmail.com"}, "devmobileuae@gmail.com"),
+              ". Your account and associated authentication information will be permanently deleted from Firebase within 30 days of your request.")
+          ),
+          React.createElement("p", null,
+            "After your account is deleted, your authentication information (email, display name, and profile picture) will be removed and cannot be recovered. This action is permanent."
+          ),
+          React.createElement("h2", null, "Information Collection"),
+          React.createElement("ul", null,
+            React.createElement("li", null, React.createElement("b", null, "Images:"), " Your photos are processed locally and never leave your device."),
+            React.createElement("li", null, React.createElement("b", null, "Analytics:"), " Pix may use anonymous analytics (such as Google Play Console statistics) to understand general app usage (e.g., installs, crashes). No personal or identifying data is collected for analytics."),
+            React.createElement("li", null, React.createElement("b", null, "Payments:"), " Subscriptions and payments are managed securely through Google Play. Pix does not process or store your payment details.")
+          ),
+          React.createElement("h2", null, "Data Sharing"),
+          React.createElement("p", null,
+            "Pix does not share your data with third parties. Your images, edits, and any app usage data remain private."
+          ),
+          React.createElement("h2", null, "Permissions"),
+          React.createElement("p", null,
+            "Pix requests permission to access your camera and photos only to allow you to pixelate images and apply styles. These permissions are used solely for app functionality."
+          ),
+          React.createElement("h2", null, "Children's Privacy"),
+          React.createElement("p", null,
+            "Pix is not intended for children under 13. No information is knowingly collected from children."
+          ),
+          React.createElement("h2", null, "Changes to Policy"),
+          React.createElement("p", null,
+            "This policy may be updated in the future. Significant changes will be announced in the app or on this page."
+          ),
+          React.createElement("h2", null, "Contact"),
+          React.createElement("p", null,
+            "For questions about this Privacy Policy or how your data is handled, contact: ",
+            React.createElement("a", {href:"mailto:alex.pix.app@gmail.com"}, "alex.pix.app@gmail.com")
+          )
+        )
       },
-      // Example for next app:
-      // otherapp: {
-      //   title: "OtherApp",
-      //   url: "/otherapp",
-      //   content: <div>Other App Privacy Policy...</div>,
-      // }
+      // Add more apps here if needed.
     };
 
     function usePolicyRouting() {
@@ -215,30 +214,38 @@
 
       if (!route) {
         return (
-          <div>
-            <h1>Privacy Policies</h1>
-            <ul className="list">
-              {Object.entries(policies).map(([key, {title, url}]) => (
-                <li key={key}>
-                  <a className="entry" href={url} onClick={e => { e.preventDefault(); goPolicy(key); }}>{title}</a>
-                </li>
-              ))}
-            </ul>
-            <div className="footer">
-              &copy; 2025 devmobileuae. For questions, contact <a href="mailto:alex.pix.app@gmail.com">alex.pix.app@gmail.com</a>
-            </div>
-          </div>
+          React.createElement("div", null,
+            React.createElement("h1", null, "Privacy Policies"),
+            React.createElement("ul", {className:"list"},
+              Object.entries(policies).map(([key, {title, url}]) =>
+                React.createElement("li", {key},
+                  React.createElement("a", {
+                    className:"entry",
+                    href:url,
+                    onClick: e => { e.preventDefault(); goPolicy(key); }
+                  }, title)
+                )
+              )
+            ),
+            React.createElement("div", {className:"footer"},
+              "© 2025 devmobileuae. For questions, contact ",
+              React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
+            )
+          )
         );
       } else {
-        const {title, content} = policies[route];
+        const {content} = policies[route];
         return (
-          <div className="card">
-            <button className="back-btn" onClick={goHome}>&larr; Back to list</button>
-            {content}
-            <div className="footer" style={{marginTop:24}}>
-              <a href="/" onClick={e => {e.preventDefault(); goHome();}}>&larr; Back to all privacy policies</a>
-            </div>
-          </div>
+          React.createElement("div", {className:"card"},
+            React.createElement("button", {className:"back-btn", onClick:goHome}, "← Back to list"),
+            content,
+            React.createElement("div", {className:"footer", style:{marginTop:24}},
+              React.createElement("a", {
+                href:"/",
+                onClick: e => {e.preventDefault(); goHome();}
+              }, "← Back to all privacy policies")
+            )
+          )
         );
       }
     }
