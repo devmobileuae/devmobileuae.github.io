@@ -272,8 +272,8 @@
         name: "Pix",
         description: "Pixelate photos in real time, apply palettes from art masterpieces and share your creations!",
         links: {
-          googleplay: '', // Add Google Play link
-          appstore: '',   // Add App Store link
+          googleplay: 'google play link will be here', 
+          appstore: '', 
         },
         privacyPolicy: 'pix_privacy',
         terms: 'pix_terms'
@@ -341,6 +341,7 @@
     // MAIN COMPONENTS
     function HomePage({onApp, dark, setDark}) {
       return React.createElement("div", null,
+          React.createElement("div", {className:"text"}, " "),
         React.createElement(ThemeToggle, {onChange: setDark, dark}),
         React.createElement("div", {className:"container"},
           React.createElement("div", {className:"big-title"}, "Hi, I'm @devmobileuae"),
