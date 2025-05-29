@@ -2,354 +2,261 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>devmobileuae — Indie Mobile Apps</title>
+  <title>Hi, I'm @devmobileuae 😎</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Indie mobile apps by devmobileuae">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link href="https://db.onlinewebfonts.com/c/38ca91756f261b513c455c73f65ea276?family=Nohemi+ExtLt" rel="stylesheet">
   <style>
-    :root {
-      --radius: 16px;
-      --header-h: 56px;
-      --transition: 0.17s cubic-bezier(.59,1.52,.53,.9);
-      --shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
-      --max-width: 570px;
-      --accent: #45cafc;
-      --accent-light: #a7eaff;
-      --gray: #8994ab;
-      --mono: 'JetBrains Mono', 'Fira Mono', monospace;
-      --sans: 'Fira Sans', 'Inter', 'Segoe UI', Arial, sans-serif;
-      --danger: #ff3b3b;
+    @import url(https://db.onlinewebfonts.com/c/38ca91756f261b513c455c73f65ea276?family=Nohemi+ExtLt);
+    @font-face {
+      font-family: "Nohemi ExtLt";
+      src: url("https://db.onlinewebfonts.com/t/38ca91756f261b513c455c73f65ea276.eot");
+      src: url("https://db.onlinewebfonts.com/t/38ca91756f261b513c455c73f65ea276.eot?#iefix") format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/38ca91756f261b513c455c73f65ea276.woff2") format("woff2"),
+        url("https://db.onlinewebfonts.com/t/38ca91756f261b513c455c73f65ea276.woff") format("woff"),
+        url("https://db.onlinewebfonts.com/t/38ca91756f261b513c455c73f65ea276.ttf") format("truetype"),
+        url("https://db.onlinewebfonts.com/t/38ca91756f261b513c455c73f65ea276.svg#Nohemi ExtLt") format("svg");
     }
     html, body {
+      background: var(--bg, #fff);
+      color: var(--fg, #111111);
+      font-family: "Nohemi ExtLt", Arial, sans-serif;
       margin: 0; padding: 0;
-      min-height: 100%;
-      font-family: var(--sans);
-      font-size: 1rem;
-      -webkit-font-smoothing: antialiased;
-      background: var(--bg, #141922);
-      color: var(--fg, #e8eef7);
-      transition: background var(--transition), color var(--transition);
-    }
-    body {
+      font-size: 1.14rem;
+      line-height: 1.7;
       min-height: 100vh;
-      width: 100vw;
-      box-sizing: border-box;
+      transition: background 0.14s, color 0.14s;
     }
-    #root {
-      min-height: 100vh;
+    body, #root { min-height: 100vh; width: 100vw; }
+    #root { min-height: 100vh; width: 100vw; }
+    .theme-toggle-row {
       width: 100vw;
-    }
-    .header {
-      position: sticky; top: 0; left: 0; right: 0;
-      height: var(--header-h);
-      z-index: 10;
-      background: var(--bg, #141922);
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-end;
-      padding: 0 2vw;
-      border-bottom: 1px solid var(--border, #232c3c);
-      transition: background var(--transition), border-color var(--transition);
+      margin-top: 3.2rem;
+      margin-bottom: 3.5rem;
+      user-select: none;
     }
-    .theme-toggle {
-      margin-left: auto;
+    .theme-toggle-txt {
+      font-family: inherit;
+      font-size: 1.05rem;
+      letter-spacing: 0.14em;
+      font-weight: 700;
       cursor: pointer;
-      outline: none;
-      display: flex; align-items: center; justify-content: center;
-      height: 36px; width: 36px;
-      border-radius: 50%;
+      padding: 0.14em 1em;
+      color: var(--fg, #111111);
+      border-radius: 99px;
       background: none;
       border: none;
-      transition: background var(--transition);
-      position: relative;
+      transition: background 0.13s, color 0.13s;
+      outline: none;
     }
-    .theme-toggle:focus-visible {
-      box-shadow: 0 0 0 2px var(--accent);
-      background: var(--accent-light);
+    .theme-toggle-txt[data-active="1"] {
+      text-decoration: underline;
+      background: rgba(17,17,17,0.07);
     }
-    .theme-toggle svg {
-      width: 24px; height: 24px; display: block;
-      transition: color var(--transition), filter var(--transition);
+    .dark .theme-toggle-txt[data-active="1"] {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
     }
     .container {
-      max-width: var(--max-width);
+      max-width: 540px;
       margin: 0 auto;
-      background: var(--container-bg, #171e2d);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2.2rem 24px 2.2rem 24px;
-      margin-top: 3vh;
-      margin-bottom: 3vh;
-      box-sizing: border-box;
-      position: relative;
-      transition: background var(--transition), box-shadow var(--transition);
-    }
-    @media (max-width: 700px) {
-      .container { padding: 2rem 24px 2rem 24px; }
-    }
-    @media (max-width: 450px) {
-      .container { padding: 1.25rem 16px 1.25rem 16px; }
-      .header { padding: 0 1vw; }
-    }
-    .home-title {
-      font-size: 2.25rem;
-      font-family: var(--mono);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.45em;
-      color: var(--accent);
-      text-align: center;
-    }
-    .home-desc {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      color: var(--gray);
-      font-size: 1.1rem;
-    }
-    .apps-list {
-      display: flex; flex-direction: column; gap: 1.2rem;
-      margin: 0 auto;
-      width: 100%;
-      max-width: 420px;
-    }
-    .app-card {
-      border-radius: 14px;
-      background: var(--card, #191f2e);
-      padding: 1.35em 1.3em;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border, #232c3c);
-      cursor: pointer;
-      transition: box-shadow var(--transition), border var(--transition), background var(--transition);
-      text-decoration: none;
-      color: inherit;
-      display: flex; flex-direction: column;
-      gap: 0.32em;
-      font-size: 1.1rem;
-      position: relative;
-      min-height: 64px;
-    }
-    .app-card-title {
-      font-family: var(--mono);
-      font-size: 1.11rem;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 0.14em;
-    }
-    .app-card-desc {
-      color: var(--gray);
-      font-size: 1.01rem;
-      margin-bottom: 0.18em;
-    }
-    .app-card:after {
-      content: '→';
-      position: absolute; right: 18px; top: 50%;
-      transform: translateY(-50%);
-      color: var(--gray);
-      font-size: 1.25em;
-      opacity: 0.66;
-      transition: color var(--transition);
-    }
-    .app-card:hover, .app-card:focus-visible {
-      box-shadow: 0 4px 18px 0 rgba(73,183,248,0.08);
-      border-color: var(--accent);
-      background: #20263c;
-      outline: none;
-    }
-    .app-card:hover:after, .app-card:focus-visible:after {
-      color: var(--accent);
-    }
-    .center-col {
-      display: flex; flex-direction: column; align-items: center; width: 100%;
-    }
-    .app-main-title {
-      font-size: 2rem;
-      font-family: var(--mono);
-      font-weight: 700;
-      margin-bottom: 0.18em;
-      color: var(--accent);
-      text-align: center;
-      margin-top: 0.3em;
-    }
-    .app-main-desc {
-      font-size: 1.13rem;
-      color: var(--gray);
-      margin-bottom: 1.3em;
-      text-align: center;
-      line-height: 1.6;
-    }
-    .app-links {
+      padding: 0 12px 10vh 12px;
       display: flex;
-      gap: 1.3em;
-      margin: 1.3em 0 0.7em 0;
-      justify-content: center;
+      flex-direction: column;
+      gap: 2.7rem;
+      align-items: flex-start;
     }
-    .app-link-btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-family: var(--mono);
+    .big-title {
+      font-family: "Nohemi ExtLt", Arial, sans-serif;
+      font-size: 2.7rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.2em;
+      margin-top: 1.4em;
+      line-height: 1.1;
+      color: var(--fg, #111111);
+      word-break: break-word;
+    }
+    .subtitle {
+      font-size: 1.25rem;
       font-weight: 700;
-      font-size: 1em;
-      padding: 0.75em 1.15em;
-      text-decoration: none;
-      transition: background var(--transition), box-shadow var(--transition);
-      box-shadow: 0 2px 10px 0 rgba(73,183,248,0.08);
-      cursor: pointer;
-      outline: none;
-      display: flex; align-items: center; gap: 0.55em;
+      color: #444;
+      letter-spacing: 0.09em;
+      font-family: "Nohemi ExtLt", Arial, sans-serif;
+      margin-bottom: 1.6em;
     }
-    .app-link-btn:focus-visible, .app-link-btn:hover {
-      background: var(--accent-light);
-      color: #1a1d25;
+    .text {
+      font-size: 1.11rem;
+      font-family: "Nohemi ExtLt", Arial, sans-serif;
+      font-weight: 400;
+      color: inherit;
+      letter-spacing: 0.03em;
+      max-width: 480px;
+      margin-bottom: 1.2em;
+      white-space: pre-line;
     }
-    .app-doc-links {
-      display: flex; gap: 2em; margin: 2.3em 0 0 0; justify-content: center; flex-wrap: wrap;
+    .apps-buttons {
+      margin-top: 1.5em;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25em;
+      align-items: flex-start;
+      width: 100%;
     }
-    .app-doc-link {
-      color: var(--accent);
-      font-family: var(--mono);
-      font-weight: 600;
+    .app-btn {
+      font-family: "Nohemi ExtLt", Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1.07rem;
+      color: var(--fg, #111111);
       text-decoration: underline;
-      font-size: 1em;
-      transition: color var(--transition);
-      cursor: pointer;
-      outline: none;
-      padding: 0.1em 0.3em;
-      border-radius: 5px;
-    }
-    .app-doc-link:focus-visible, .app-doc-link:hover {
-      background: var(--accent-bg, #162334);
-      color: #fff;
-    }
-    .doc-page {
-      background: #fff;
-      color: #181b23;
-      border-radius: var(--radius);
-      max-width: var(--max-width);
-      margin: 3vh auto;
-      padding: 2.3rem 24px 2.3rem 24px;
-      box-sizing: border-box;
-      position: relative;
-      box-shadow: var(--shadow);
-      transition: background var(--transition), color var(--transition);
-      min-height: 82vh;
-      display: flex; flex-direction: column; align-items: center;
-      animation: docIn 0.22s;
-    }
-    @keyframes docIn {
-      from { opacity: 0; transform: translateY(30px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    .doc-content {
-      width: 100%; max-width: 520px;
-      margin: 0 auto; text-align: left;
-      font-size: 1.04rem;
-    }
-    .doc-close-btn {
-      position: absolute;
-      top: 18px; left: 20px;
       background: none;
       border: none;
-      color: var(--danger);
-      font-size: 2em;
       cursor: pointer;
-      line-height: 1;
-      z-index: 2;
-      transition: background 0.13s, color 0.13s;
-      border-radius: 50%;
-      padding: 0.1em 0.25em;
-    }
-    .doc-close-btn:hover, .doc-close-btn:focus-visible {
-      background: #ffeaea;
-      color: #ad162f;
+      padding: 0.15em 0;
+      letter-spacing: 0.07em;
       outline: none;
+      transition: color 0.14s;
+      text-align: left;
     }
-    @media (max-width: 650px) {
-      .doc-content, .doc-page, .container { padding-left: 10px; padding-right: 10px;}
-      .doc-page { padding-top: 2.3rem; }
+    .app-btn:focus-visible, .app-btn:hover { color: #6b2cc6; }
+    .dark {
+      --bg: #111111;
+      --fg: #fff;
     }
-    @media (max-width: 450px) {
-      .container, .doc-page { border-radius: 0; margin-top: 0.7em; margin-bottom: 0.7em; }
-      .doc-content, .container, .doc-page { padding-left: 6px; padding-right: 6px;}
+    .dark .subtitle,
+    .dark .app-btn { color: #fff; }
+    .dark .big-title,
+    .dark .text { color: #fff; }
+    .app-section {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 0 12px 10vh 12px;
+      margin-top: 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2.1rem;
     }
-    .footer {
-      color: var(--gray);
-      font-size: 0.98em;
-      margin: 2.6em 0 0 0;
-      letter-spacing: 0.01em;
+    .app-title {
+      font-size: 2.1rem;
+      font-weight: 900;
+      margin-bottom: 0.14em;
+      font-family: "Nohemi ExtLt", Arial, sans-serif;
+      letter-spacing: -0.01em;
+      color: var(--fg, #111111);
+    }
+    .app-desc {
+      font-size: 1.11rem;
+      line-height: 1.7;
+      font-family: "Nohemi ExtLt", Arial, sans-serif;
+      color: inherit;
+      letter-spacing: 0.03em;
       font-weight: 400;
-      width: 100vw;
-      max-width: 100vw;
-      text-align: center;
-      padding: 0 1em 2em 1em;
-      word-break: break-word;
-      white-space: pre-line;
-      line-height: 1.5;
-      display: block;
+      max-width: 420px;
     }
-    .hide { display: none !important; }
+    .app-links-row {
+      display: flex;
+      flex-direction: row;
+      gap: 1.7em;
+      margin-top: 2.1rem;
+      margin-bottom: 0.6em;
+    }
+    .app-link {
+      color: var(--fg, #111111);
+      text-decoration: underline;
+      font-weight: 700;
+      background: none;
+      border: none;
+      font-family: "Nohemi ExtLt", Arial, sans-serif;
+      cursor: pointer;
+      font-size: 1.03rem;
+      padding: 0;
+      outline: none;
+      transition: color 0.14s;
+    }
+    .app-link:focus-visible, .app-link:hover { color: #6b2cc6; }
+    .dark .app-title,
+    .dark .app-desc,
+    .dark .app-link { color: #fff; }
+    .doc-section {
+      max-width: 540px;
+      margin: 0 auto;
+      margin-top: 3.5rem;
+      padding: 0 12px 6vh 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: var(--fg, #111111);
+    }
+    .dark .doc-section { color: #fff; }
+    .doc-back {
+      background: none;
+      border: none;
+      color: var(--fg, #111111);
+      font-size: 2em;
+      font-family: inherit;
+      font-weight: 700;
+      margin-bottom: 0.9em;
+      cursor: pointer;
+      outline: none;
+      transition: color 0.13s;
+    }
+    .doc-back:focus-visible, .doc-back:hover { color: #6b2cc6; }
+    .dark .doc-back { color: #fff; }
+    .doc-content {
+      font-family: "Nohemi ExtLt", Arial, sans-serif;
+      font-size: 1.09rem;
+      font-weight: 400;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      color: inherit;
+    }
+    h1, h2 { font-weight: 700; }
+    h1 { font-size: 1.42em; margin-top: 1.6em; }
+    h2 { font-size: 1.11em; margin-top: 1.5em; }
+    ul, li { font-size: 1em; }
+    @media (max-width: 500px) {
+      .big-title, .app-title { font-size: 1.55rem; }
+      .container, .app-section, .doc-section { padding: 0 6px 10vh 6px; }
+    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <button class="theme-toggle" id="theme-toggle" title="Switch theme" tabindex="0">
-      <!-- Icon inserted by JS -->
-    </button>
-  </div>
   <div id="root"></div>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script>
-    // --- THEME ---
-    const prefersDark = () =>
-      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // THEME TOGGLE LOGIC
     function setTheme(dark) {
-      if (dark) {
-        document.documentElement.style.setProperty('--bg', '#141922');
-        document.documentElement.style.setProperty('--container-bg', '#171e2d');
-        document.documentElement.style.setProperty('--fg', '#e8eef7');
-        document.documentElement.style.setProperty('--card', '#191f2e');
-        document.documentElement.style.setProperty('--border', '#232c3c');
-      } else {
-        document.documentElement.style.setProperty('--bg', '#fafbfc');
-        document.documentElement.style.setProperty('--container-bg', '#fff');
-        document.documentElement.style.setProperty('--fg', '#232427');
-        document.documentElement.style.setProperty('--card', '#fff');
-        document.documentElement.style.setProperty('--border', '#e1e4ea');
-      }
+      if (dark) document.body.classList.add('dark');
+      else document.body.classList.remove('dark');
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
     }
-    // Theme state
     let theme = localStorage.getItem('theme');
-    if (theme === null) {
-      theme = prefersDark() ? 'dark' : 'light';
-      localStorage.setItem('theme', theme);
-    }
+    if (!theme) theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     setTheme(theme === 'dark');
-    // Icon
-    function renderThemeIcon() {
-      const toggle = document.getElementById('theme-toggle');
-      if (!toggle) return;
-      toggle.innerHTML = theme === 'dark'
-        ? '<svg fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#fff" opacity="0.8"/><path d="M2 12a10 10 0 0 0 17.32 6.67A9 9 0 0 1 12 2a10 10 0 0 0-10 10z" fill="#45cafc"/></svg>'
-        : '<svg fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="#ffe354"/><g stroke="#ffc500" stroke-width="2"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></g></svg>';
+    function ThemeToggle({onChange, dark}) {
+      return React.createElement('div', {className: 'theme-toggle-row'},
+        React.createElement('button', {
+          className: 'theme-toggle-txt',
+          'data-active': dark ? 1 : 0,
+          style: {marginRight: 5},
+          onClick: ()=>onChange(true)
+        }, 'dark'),
+        '|',
+        React.createElement('button', {
+          className: 'theme-toggle-txt',
+          'data-active': !dark ? 1 : 0,
+          style: {marginLeft: 5},
+          onClick: ()=>onChange(false)
+        }, 'light')
+      );
     }
-    function updateTheme(to) {
-      theme = to;
-      localStorage.setItem('theme', theme);
-      setTheme(theme === 'dark');
-      renderThemeIcon();
-    }
-    document.addEventListener('DOMContentLoaded', renderThemeIcon);
-    window.onload = renderThemeIcon;
-    document.getElementById('theme-toggle').onclick = () => {
-      updateTheme(theme === 'dark' ? 'light' : 'dark');
-    };
-
-    // --- ROUTING ---
+    // SPA ROUTING & DATA
     function getRoute() {
       const hash = window.location.hash || '';
-      // #/ | #/pix | #/pix/privacy | #/pix/terms
       const m = hash.match(/^#\/([a-z0-9-]+)?\/?(privacy|terms)?$/i);
       if (!m || !m[1]) return {page: 'home'};
       return {
@@ -358,151 +265,123 @@
         doc: m[2] || null,
       };
     }
-    // --- APP DATA ---
+    // CONTENT DATA
     const apps = {
       pix: {
         id: "pix",
         name: "Pix",
-        description: "Pixelate photos in real time, apply art palettes, and share your creations!",
-        longDescription:
-          "Say hello to Pix – your pocket pixel art playground!\n\nSnap a selfie or pick any photo, then pixelate it instantly for that awesome retro or artsy look. Want to stand out? Mix in color palettes inspired by legends like Mona Lisa, Van Gogh, and more. It’s like remixing classic masterpieces with your own photos!\n\nWhy you’ll love Pix:\n- 📷 Pixelate live with your camera – see the magic in real time!\n- 🖼️ Pixelate any photo from your gallery, old or new\n- 🎨 Drop in wild color vibes from iconic paintings (Mona Lisa, Starry Night, and friends)\n- 💡 All processing happens right on your device – fast & private\n- 🚀 Share your pixel creations anywhere in a tap – show off your art!\n\nWhether you want a pixel-perfect profile pic, a fun way to hide your face, or a unique way to share your style, Pix is pure pixel joy. Make your world more playful – one pixel at a time!",
+        description: "Pixelate photos in real time, apply palettes from art masterpieces and share your creations!",
         links: {
-          googleplay: '', // Add your Google Play link here
-          appstore: '',   // Add your App Store link here
+          googleplay: '', // Add Google Play link
+          appstore: '',   // Add App Store link
         },
         privacyPolicy: 'pix_privacy',
         terms: 'pix_terms'
       }
-      // Add more apps here
     };
-    // --- PRIVACY POLICY (YOUR FULL TEXT PRESERVED) ---
+    // DPO-IMPROVED PRIVACY POLICY (ENGLISH, including RevenueCat)
     const privacyPolicies = {
-      pix_privacy: React.createElement(React.Fragment, null,
-        React.createElement("h1", null, "Pix App Privacy Policy"),
+      pix_privacy: React.createElement("div", null,
+        React.createElement("h1", null, "Pix Privacy Policy"),
         React.createElement("p", null, React.createElement("b", null, "Effective Date:"), " 28 May 2025"),
         React.createElement("p", null,
-          "Thank you for using ",
-          React.createElement("strong", null, "Pix"),
-          ", a real-time image pixelization and styles app for Android, created and operated by an indie developer. This Privacy Policy explains how your data is handled in the Pix app."
+          "Pix is an indie mobile app that lets you pixelate images in real time or from your gallery, and apply color palettes inspired by famous paintings."
         ),
-        React.createElement("h2", null, "Authentication and Account Information"),
+        React.createElement("h2", null, "Data Controller"),
         React.createElement("p", null,
-          "Pix offers sign-in via Google or email and password, using ",
-          React.createElement("a", {href:"https://firebase.google.com/products/auth", target:"_blank", rel:"noopener"}, "Firebase Authentication"),
-          " as a secure authentication provider. When you sign in, basic information such as your email address, display name, and profile picture (for Google Sign-In) is collected and securely managed by Firebase."
+          "The data controller for Pix is the app developer: devmobileuae (contact: devmobileuae@gmail.com)."
+        ),
+        React.createElement("h2", null, "Authentication & Account Data"),
+        React.createElement("p", null,
+          "Pix uses Firebase Authentication for sign-in via Google or email and password. When you sign in, your email address, display name, and (if using Google) profile photo are collected and securely managed by Firebase. Your password is never visible to the developer, and all credentials are stored securely by Firebase."
         ),
         React.createElement("ul", null,
-          React.createElement("li", null, "Your authentication data is used solely for providing access to app features and subscriptions."),
-          React.createElement("li", null, "Your password (if using email + password) is never visible to the app developer and is securely stored by Firebase."),
-          React.createElement("li", null, "Your account information is not shared with any third parties or used for marketing purposes."),
-          React.createElement("li", null, "For more information, see ",
-            React.createElement("a", {href:"https://firebase.google.com/support/privacy", target:"_blank", rel:"noopener"}, "Firebase Privacy and Security"), ".")
+          React.createElement("li", null, "Authentication data is used only to provide app features and subscriptions."),
+          React.createElement("li", null, "No account data is shared with third parties or used for marketing purposes."),
+          React.createElement("li", null, "You may request account deletion from within the app (if available) or by contacting devmobileuae@gmail.com. Data will be deleted within 30 days of your request.")
         ),
-        React.createElement("h2", null, "Account Deletion"),
-        React.createElement("p", null, "You may delete your Pix account at any time:"),
-        React.createElement("ul", null,
-          React.createElement("li", null, "Via the app’s Profile page, using the “Delete Account” option (if available in your version)."),
-          React.createElement("li", null, "Or by sending a deletion request from your registered email address to ",
-            React.createElement("a", {href:"mailto:devmobileuae@gmail.com"}, "devmobileuae@gmail.com"),
-            ". Your account and associated authentication information will be permanently deleted from Firebase within 30 days of your request.")
-        ),
+        React.createElement("h2", null, "Payments & Subscriptions"),
         React.createElement("p", null,
-          "After your account is deleted, your authentication information (email, display name, and profile picture) will be removed and cannot be recovered. This action is permanent."
+          "Pix uses RevenueCat to process subscriptions and manage payment status. RevenueCat does not receive your personal data, only an anonymous user identifier from Firebase Authentication. All actual payments are processed through Google Play or the App Store, and Pix does not receive or store your payment information."
         ),
-        React.createElement("h2", null, "Information Collection"),
-        React.createElement("ul", null,
-          React.createElement("li", null, React.createElement("b", null, "Images:"), " Your photos are processed locally and never leave your device."),
-          React.createElement("li", null, React.createElement("b", null, "Analytics:"), " Pix may use anonymous analytics (such as Google Play Console statistics) to understand general app usage (e.g., installs, crashes). No personal or identifying data is collected for analytics."),
-          React.createElement("li", null, React.createElement("b", null, "Payments:"), " Subscriptions and payments are managed securely through Google Play. Pix does not process or store your payment details.")
-        ),
-        React.createElement("h2", null, "Sharing Content"),
+        React.createElement("h2", null, "Image Data & Processing"),
         React.createElement("p", null,
-          "Pix allows you to share images and creations directly to social networks or other apps using your device's standard sharing features. The app does not upload your shared content to its own servers. When you choose to share, your images or creations are sent only to the apps and services you select."
+          "All photo and image processing takes place on your device. Pix does not upload, transfer, or store your images on any server. When you share an image, it is sent only to the app or service you choose via your device’s share menu."
+        ),
+        React.createElement("h2", null, "Analytics"),
+        React.createElement("p", null,
+          "Pix uses anonymous analytics (such as Google Play Console statistics) to monitor installs, crashes, and general app usage. No personal or identifying information is collected for analytics."
         ),
         React.createElement("h2", null, "Data Sharing"),
+        React.createElement("p", null, "Pix does not share your personal data with any third parties."),
+        React.createElement("h2", null, "Children’s Privacy"),
+        React.createElement("p", null, "Pix is not intended for children under 13, and does not knowingly collect data from children."),
+        React.createElement("h2", null, "Data Security"),
         React.createElement("p", null,
-          "Pix does not share your data with third parties. Your images, edits, and any app usage data remain private."
+          "All authentication and payment data is processed securely using Firebase and RevenueCat’s systems, both of which follow industry-standard security protocols."
         ),
-        React.createElement("h2", null, "Permissions"),
+        React.createElement("h2", null, "Changes to This Policy"),
         React.createElement("p", null,
-          "Pix requests permission to access your camera and photos only to allow you to pixelate images and apply styles. These permissions are used solely for app functionality."
-        ),
-        React.createElement("h2", null, "Children's Privacy"),
-        React.createElement("p", null,
-          "Pix is not intended for children under 13. No information is knowingly collected from children."
-        ),
-        React.createElement("h2", null, "Changes to Policy"),
-        React.createElement("p", null,
-          "This policy may be updated in the future. Significant changes will be announced in the app or on this page."
+          "You will be notified of significant changes to this policy via an update in the app or on this page."
         ),
         React.createElement("h2", null, "Contact"),
         React.createElement("p", null,
-          "For questions about this Privacy Policy or how your data is handled, contact: ",
-          React.createElement("a", {href:"mailto:devmobileuae@gmail.com"}, "devmobileuae@gmail.com")
+          "For privacy questions or account deletion requests, contact: ",
+          React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
         )
-      ),
-      // You can add more policy pages for other apps here.
-    };
-    // --- TERMS PAGE (placeholder) ---
-    const termsDocs = {
-      pix_terms: React.createElement(React.Fragment, null,
-        React.createElement("h1", null, "Pix App Terms of Use"),
-        React.createElement("p", null, "Coming soon.")
       )
     };
-    // --- MAIN COMPONENTS ---
-    function HomePage({onApp}) {
-      return React.createElement("div", {className:"container center-col"},
-        React.createElement("div", {className:"home-title"}, "devmobileuae"),
-        React.createElement("div", {className:"home-desc"},
-          "Hey! 👋\n\nI’m an indie mobile developer. I create privacy-friendly, fun and useful mobile apps for everyone. Check out what I’ve built:"
-        ),
-        React.createElement("div", {className:"apps-list"},
-          Object.values(apps).map(app =>
-            React.createElement("a", {
-              className:"app-card", href:`#/`+app.id, key:app.id, onClick: e => { e.preventDefault(); onApp(app.id); }
-            },
-              React.createElement("div", {className:"app-card-title"}, app.name),
-              React.createElement("div", {className:"app-card-desc"}, app.description)
+    // TERMS (placeholder)
+    const termsDocs = {
+      pix_terms: React.createElement("div", null,
+        React.createElement("h1", null, "Pix Terms of Use"),
+        React.createElement("p", null, "Detailed terms will be posted here soon.")
+      )
+    };
+    // MAIN COMPONENTS
+    function HomePage({onApp, dark, setDark}) {
+      return React.createElement("div", null,
+        React.createElement(ThemeToggle, {onChange: setDark, dark}),
+        React.createElement("div", {className:"container"},
+          React.createElement("div", {className:"big-title"}, "Hi, I'm @devmobileuae 😎"),
+          React.createElement("div", {className:"text"},
+            "10 years in the IT industry. Now building Android & iOS apps for fun, learning, and creativity. Living in Dubai.\n\nMore about me and projects coming soon."
+          ),
+          React.createElement("div", {className:"apps-buttons"},
+            Object.values(apps).map(app =>
+              React.createElement("button", {
+                className:"app-btn", key:app.id,
+                onClick:()=>onApp(app.id)
+              }, app.name)
             )
           )
-        ),
-        React.createElement("div", {className:"footer"},
-          "© 2025 devmobileuae\nFor questions: ",
-          React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
         )
       );
     }
     function AppPage({app, onDoc, onBack}) {
-      return React.createElement("div", {className:"container center-col"},
-        React.createElement("button", {className:"back-btn", style:{alignSelf:'flex-start',marginBottom:'1.6em'}, onClick:onBack}, "← Back"),
-        React.createElement("div", {className:"app-main-title"}, app.name),
-        React.createElement("div", {className:"app-main-desc"},
-          app.longDescription.split('\n').map((str,i) => React.createElement("span",{key:i},str,React.createElement("br",null)))
-        ),
-        React.createElement("div", {className:"app-links"},
-          app.links.googleplay && React.createElement("a", {className:"app-link-btn", href:app.links.googleplay, target:"_blank", rel:"noopener"}, "Google Play"),
-          app.links.appstore && React.createElement("a", {className:"app-link-btn", href:app.links.appstore, target:"_blank", rel:"noopener"}, "App Store")
-        ),
-        React.createElement("div", {className:"app-doc-links"},
-          React.createElement("a", {className:"app-doc-link", href:`#/${app.id}/privacy`, onClick:e=>{e.preventDefault();onDoc(app.id,'privacy')}}, "Privacy Policy"),
-          React.createElement("a", {className:"app-doc-link", href:`#/${app.id}/terms`, onClick:e=>{e.preventDefault();onDoc(app.id,'terms')}}, "Terms")
-        ),
-        React.createElement("div", {className:"footer"},
-          "© 2025 devmobileuae\nFor questions: ",
-          React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
+      return React.createElement("div", {className:"app-section"},
+        React.createElement("button", {className:"doc-back", onClick:onBack, title:"Back"}, "←"),
+        React.createElement("div", {className:"app-title"}, app.name),
+        React.createElement("div", {className:"app-desc"}, app.description),
+        React.createElement("div", {className:"app-links-row"},
+          React.createElement("button", {className:"app-link", onClick:()=>onDoc(app.id,'privacy')}, "Privacy Policy"),
+          React.createElement("button", {className:"app-link", onClick:()=>onDoc(app.id,'terms')}, "Terms")
         )
       );
     }
-    function DocPage({content, onClose}) {
-      return React.createElement("div", {className:"doc-page"},
-        React.createElement("button", {className:"doc-close-btn", onClick:onClose, title:"Close"}, "×"),
+    function DocPage({content, onBack}) {
+      return React.createElement("div", {className:"doc-section"},
+        React.createElement("button", {className:"doc-back", onClick:onBack, title:"Back"}, "←"),
         React.createElement("div", {className:"doc-content"}, content)
       );
     }
-    // --- APP ROOT ---
+    // SPA ROOT
     function App() {
       const [route, setRoute] = React.useState(getRoute());
+      const [dark, setDark] = React.useState(theme === 'dark');
+      React.useEffect(()=>{
+        setTheme(dark);
+      },[dark]);
       React.useEffect(()=>{
         const onHash = ()=>setRoute(getRoute());
         window.addEventListener("hashchange", onHash);
@@ -512,17 +391,16 @@
       const navHome = () => { window.location.hash = '#/'; }
       const navApp = id => { window.location.hash = `#/${id}`; }
       const navDoc = (id, doc) => { window.location.hash = `#/${id}/${doc}`; }
-      // Render
       if (route.page === 'home')
-        return React.createElement(HomePage, {onApp:navApp});
+        return React.createElement(HomePage, {onApp:navApp, dark, setDark});
       if (route.page === 'app' && apps[route.app])
         return React.createElement(AppPage, {app:apps[route.app], onDoc:navDoc, onBack:navHome});
       if (route.page === 'doc' && apps[route.app]) {
         const docId = route.doc === 'privacy' ? apps[route.app].privacyPolicy : apps[route.app].terms;
         const content = route.doc === 'privacy' ? privacyPolicies[docId] : termsDocs[docId] || React.createElement("div", null, "Coming soon.");
-        return React.createElement(DocPage, {content,onClose:()=>navApp(route.app)});
+        return React.createElement(DocPage, {content, onBack:()=>navApp(route.app)});
       }
-      return React.createElement(HomePage, {onApp:navApp});
+      return React.createElement(HomePage, {onApp:navApp, dark, setDark});
     }
     ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
   </script>
