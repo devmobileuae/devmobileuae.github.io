@@ -39,8 +39,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 0.0rem;
-      margin-bottom: 3.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
       user-select: none;
     }
     .theme-toggle-txt {
@@ -71,7 +71,7 @@
       padding: 0 12px 10vh 12px;
       display: flex;
       flex-direction: column;
-      gap: 2.7rem;
+      gap: 1.35rem;
       align-items: flex-start;
     }
     .big-title {
@@ -80,7 +80,7 @@
       font-weight: 900;
       letter-spacing: -0.01em;
       margin-bottom: 0.2em;
-      margin-top: 1.4em;
+      margin-top: 0;
       line-height: 1.1;
       color: var(--fg, #111111);
       word-break: break-word;
@@ -219,8 +219,15 @@
       letter-spacing: 0.02em;
       color: inherit;
     }
+    .doc-content a {
+      color: #6b2cc6;
+      text-decoration: underline;
+    }
+    .dark .doc-content a {
+      color: #9f7aea;
+    }
     h1, h2 { font-weight: 700; }
-    h1 { font-size: 1.42em; margin-top: 1.6em; }
+    h1 { font-size: 1.42em; margin-top: 0; }
     h2 { font-size: 1.11em; margin-top: 1.5em; }
     ul, li { font-size: 1em; }
     @media (max-width: 500px) {
@@ -285,7 +292,7 @@
         terms: 'pix_terms'
       }
     };
-    // DPO-IMPROVED PRIVACY POLICY (ENGLISH, including RevenueCat)
+    // ENHANCED PRIVACY POLICY WITH LINKS
     const privacyPolicies = {
       pix_privacy: React.createElement("div", null,
         React.createElement("h1", null, "Pix Privacy Policy"),
@@ -295,11 +302,15 @@
         ),
         React.createElement("h2", null, "Data Controller"),
         React.createElement("p", null,
-          "The data controller for Pix is the app developer: devmobileuae (contact: devmobileuae@gmail.com)."
+          "The data controller for Pix is the app developer: devmobileuae (contact: ",
+          React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com"),
+          ")."
         ),
         React.createElement("h2", null, "Authentication & Account Data"),
         React.createElement("p", null,
-          "Pix uses Firebase Authentication for sign-in via Google or email and password. When you sign in, your email address, display name, and (if using Google) profile photo are collected and securely managed by Firebase. Your password is never visible to the developer, and all credentials are stored securely by Firebase."
+          "Pix uses ",
+          React.createElement("a", {href:"https://firebase.google.com/docs/auth", target:"_blank", rel:"noopener noreferrer"},"Firebase Authentication"),
+          " for sign-in via Google or email and password. When you sign in, your email address, display name, and (if using Google) profile photo are collected and securely managed by Firebase. Your password is never visible to the developer, and all credentials are stored securely by Firebase."
         ),
         React.createElement("ul", null,
           React.createElement("li", null, "Authentication data is used only to provide app features and subscriptions."),
@@ -308,46 +319,105 @@
         ),
         React.createElement("h2", null, "Payments & Subscriptions"),
         React.createElement("p", null,
-          "Pix uses RevenueCat to process subscriptions and manage payment status. RevenueCat does not receive your personal data, only an anonymous user identifier from Firebase Authentication. All actual payments are processed through Google Play or the App Store, and Pix does not receive or store your payment information."
+          "Pix uses ",
+          React.createElement("a", {href:"https://www.revenuecat.com/", target:"_blank", rel:"noopener noreferrer"},"RevenueCat"),
+          " to process subscriptions and manage payment status. RevenueCat does not receive your personal data, only an anonymous user identifier from Firebase Authentication. All actual payments are processed through ",
+          React.createElement("a", {href:"https://play.google.com/about/play-terms/", target:"_blank", rel:"noopener noreferrer"},"Google Play"),
+          " or the App Store, and Pix does not receive or store your payment information."
         ),
         React.createElement("h2", null, "Image Data & Processing"),
         React.createElement("p", null,
-          "All photo and image processing takes place on your device. Pix does not upload, transfer, or store your images on any server. When you share an image, it is sent only to the app or service you choose via your device’s share menu."
+          "All photo and image processing takes place locally on your device. Pix does not upload, transfer, or store your images on any remote server. When you share an image, it is sent only to the app or service you choose via your device's native share functionality."
         ),
-        React.createElement("h2", null, "Analytics"),
+        React.createElement("h2", null, "Device Permissions"),
         React.createElement("p", null,
-          "Pix uses anonymous analytics (such as Google Play Console statistics) to monitor installs, crashes, and general app usage. No personal or identifying information is collected for analytics."
+          "Pix may request the following permissions on your mobile device:"
         ),
+        React.createElement("ul", null,
+          React.createElement("li", null, React.createElement("b", null, "Camera Access:"), " To capture photos for pixelation (optional)"),
+          React.createElement("li", null, React.createElement("b", null, "Photo Library/Gallery Access:"), " To select existing images for processing (optional)"),
+          React.createElement("li", null, React.createElement("b", null, "Storage Access:"), " To save processed images to your device (optional)")
+        ),
+        React.createElement("p", null, "These permissions are only used for their stated purposes and you can revoke them at any time through your device settings."),
+        React.createElement("h2", null, "Analytics & Crash Reporting"),
+        React.createElement("p", null,
+          "Pix uses anonymous analytics and crash reporting (such as ",
+          React.createElement("a", {href:"https://support.google.com/googleplay/android-developer/answer/6135870", target:"_blank", rel:"noopener noreferrer"},"Google Play Console"),
+          " and ",
+          React.createElement("a", {href:"https://firebase.google.com/docs/crashlytics", target:"_blank", rel:"noopener noreferrer"},"Firebase Crashlytics"),
+          ") to monitor app performance, crashes, and general usage patterns. No personal or identifying information is collected for analytics purposes."
+        ),
+        React.createElement("h2", null, "Third-Party Services"),
+        React.createElement("p", null, "Pix integrates with the following third-party services:"),
+        React.createElement("ul", null,
+          React.createElement("li", null, 
+            React.createElement("a", {href:"https://firebase.google.com/support/privacy", target:"_blank", rel:"noopener noreferrer"},"Firebase"),
+            " - for authentication and crash reporting"
+          ),
+          React.createElement("li", null, 
+            React.createElement("a", {href:"https://www.revenuecat.com/privacy", target:"_blank", rel:"noopener noreferrer"},"RevenueCat"),
+            " - for subscription management"
+          ),
+          React.createElement("li", null, 
+            React.createElement("a", {href:"https://policies.google.com/privacy", target:"_blank", rel:"noopener noreferrer"},"Google"),
+            " - for authentication and app store services"
+          )
+        ),
+        React.createElement("p", null, "Please review their respective privacy policies for more information about how they handle data."),
         React.createElement("h2", null, "Data Sharing"),
-        React.createElement("p", null, "Pix does not share your personal data with any third parties."),
-        React.createElement("h2", null, "Children’s Privacy"),
-        React.createElement("p", null, "Pix is not intended for children under 13, and does not knowingly collect data from children."),
+        React.createElement("p", null, "Pix does not sell, rent, or share your personal data with any third parties for marketing or advertising purposes."),
+        React.createElement("h2", null, "Children's Privacy"),
+        React.createElement("p", null, "Pix is not intended for children under 13 years of age, and does not knowingly collect personal information from children under 13. If we become aware that we have collected personal information from a child under 13, we will take steps to delete such information."),
+        React.createElement("h2", null, "Data Retention"),
+        React.createElement("p", null, "Account data is retained as long as your account is active. If you delete your account, your data will be permanently deleted within 30 days. Anonymized analytics data may be retained longer for app improvement purposes."),
         React.createElement("h2", null, "Data Security"),
         React.createElement("p", null,
-          "All authentication and payment data is processed securely using Firebase and RevenueCat’s systems, both of which follow industry-standard security protocols."
+          "All authentication and payment data is processed securely using industry-standard encryption and security protocols provided by Firebase and RevenueCat. However, no method of transmission over the internet is 100% secure."
         ),
+        React.createElement("h2", null, "Your Rights"),
+        React.createElement("p", null, "Depending on your location, you may have the following rights:"),
+        React.createElement("ul", null,
+          React.createElement("li", null, "Access to your personal data"),
+          React.createElement("li", null, "Correction of inaccurate data"),
+          React.createElement("li", null, "Deletion of your data"),
+          React.createElement("li", null, "Data portability"),
+          React.createElement("li", null, "Withdrawal of consent")
+        ),
+        React.createElement("p", null, "To exercise these rights, contact us at devmobileuae@gmail.com."),
         React.createElement("h2", null, "Changes to This Policy"),
         React.createElement("p", null,
-          "You will be notified of significant changes to this policy via an update in the app or on this page."
+          "We may update this privacy policy from time to time. You will be notified of significant changes via an app update notification or on this page. Continued use of the app after changes constitutes acceptance of the updated policy."
         ),
-        React.createElement("h2", null, "Contact"),
+        React.createElement("h2", null, "Contact Us"),
         React.createElement("p", null,
-          "For privacy questions or account deletion requests, contact: ",
+          "For privacy questions, data requests, or account deletion, contact: ",
           React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
-        )
+        ),
+        React.createElement("p", null, React.createElement("i", null, "Last updated: May 28, 2025"))
       )
     };
     // TERMS (placeholder)
     const termsDocs = {
       pix_terms: React.createElement("div", null,
         React.createElement("h1", null, "Pix Terms of Use"),
-        React.createElement("p", null, "Detailed terms will be posted here soon.")
+        React.createElement("p", null, React.createElement("b", null, "Effective Date:"), " 28 May 2025"),
+        React.createElement("p", null, "By using the Pix mobile application, you agree to these terms."),
+        React.createElement("h2", null, "App Usage"),
+        React.createElement("p", null, "Pix is provided for personal, non-commercial use. You may not reverse engineer, modify, or distribute the app."),
+        React.createElement("h2", null, "Subscriptions"),
+        React.createElement("p", null, "Subscription fees are processed through your app store and are subject to their terms and refund policies."),
+        React.createElement("h2", null, "Limitation of Liability"),
+        React.createElement("p", null, "The app is provided 'as is' without warranties. We are not liable for any damages arising from app usage."),
+        React.createElement("h2", null, "Contact"),
+        React.createElement("p", null, 
+          "For questions about these terms, contact: ",
+          React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
+        )
       )
     };
     // MAIN COMPONENTS
     function HomePage({onApp, dark, setDark}) {
       return React.createElement("div", null,
-          React.createElement("div", {className:"text"}, " "),
         React.createElement(ThemeToggle, {onChange: setDark, dark}),
         React.createElement("div", {className:"container"},
           React.createElement("div", {className:"big-title"}, "Hi, I'm @devmobileuae"),
