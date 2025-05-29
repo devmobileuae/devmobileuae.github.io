@@ -20,7 +20,7 @@
       background: var(--bg, #fff);
       color: var(--fg, #111111);
       font-family: "Nohemi ExtLt", Arial, sans-serif;
-      margin: 0; padding: 0;
+      margin: 0; padding: 0; border: 0;
       font-size: 1.14rem;
       line-height: 1.7;
       min-height: 100vh;
@@ -33,7 +33,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 2.1rem;
+      margin-top: 0.0rem;
       margin-bottom: 3.5rem;
       user-select: none;
     }
@@ -98,7 +98,7 @@
       white-space: pre-line;
     }
     .apps-buttons {
-      margin-top: 1.5em;
+      margin-top: 1.2em;
       display: flex;
       flex-direction: column;
       gap: 1.25em;
@@ -343,9 +343,9 @@
       return React.createElement("div", null,
         React.createElement(ThemeToggle, {onChange: setDark, dark}),
         React.createElement("div", {className:"container"},
-          React.createElement("div", {className:"big-title"}, "Hi, I'm @devmobileuae 😎"),
+          React.createElement("div", {className:"big-title"}, "Hi, I'm @devmobileuae"),
           React.createElement("div", {className:"text"},
-            "10 years in the IT industry. Now building Android & iOS apps for fun, learning, and creativity. Living in Dubai.\n\nMore about me and projects coming soon."
+            "10 years in the IT industry. Now building Android & iOS apps for fun, learning, and creativity. Living in Dubai.\n More about me and projects coming soon."
           ),
           React.createElement("div", {className:"apps-buttons"},
             Object.values(apps).map(app =>
