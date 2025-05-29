@@ -2,327 +2,528 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Privacy Policies – devmobileuae</title>
+  <title>devmobileuae — Indie Mobile Apps</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy Policies for devmobileuae indie apps">
-  <!-- Indie/developer vibe font -->
+  <meta name="description" content="Indie mobile apps by devmobileuae">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fcfdff;
-      --card: #fff;
-      --text: #232427;
-      --muted: #7d8690;
-      --border: #e1e4ea;
-      --accent: #49b7f8;
-      --accent-dark: #2090d6;
-      --accent-bg: #f2f9fd;
-      --radius: 13px;
-      --max-width: 670px;
-      --shadow: 0 1px 10px 0 rgba(73,183,248,0.06);
+      --radius: 16px;
+      --header-h: 56px;
+      --transition: 0.17s cubic-bezier(.59,1.52,.53,.9);
+      --shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+      --max-width: 570px;
+      --accent: #45cafc;
+      --accent-light: #a7eaff;
+      --gray: #8994ab;
       --mono: 'JetBrains Mono', 'Fira Mono', monospace;
       --sans: 'Fira Sans', 'Inter', 'Segoe UI', Arial, sans-serif;
+      --danger: #ff3b3b;
     }
     html, body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       min-height: 100%;
-      background: var(--bg);
-      color: var(--text);
       font-family: var(--sans);
       font-size: 1rem;
-      line-height: 1.58;
       -webkit-font-smoothing: antialiased;
+      background: var(--bg, #141922);
+      color: var(--fg, #e8eef7);
+      transition: background var(--transition), color var(--transition);
     }
     body {
       min-height: 100vh;
+      width: 100vw;
+      box-sizing: border-box;
     }
     #root {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2rem 0.8rem 1.5rem 0.8rem;
+      min-height: 100vh;
+      width: 100vw;
     }
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      border: 1.3px solid var(--border);
-      box-shadow: var(--shadow);
-      padding: 1.35rem 1.25rem 1.1rem 1.25rem;
-      margin-bottom: 1.6rem;
-      transition: box-shadow 0.13s;
-    }
-    h1, h2 {
-      color: var(--accent-dark);
-      font-family: var(--sans);
-      letter-spacing: -0.01em;
-      margin-top: 0;
-    }
-    h1 {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      font-family: var(--mono);
-    }
-    h2 {
-      font-size: 1.13rem;
-      font-weight: 700;
-      margin: 1.18rem 0 0.4rem 0;
-    }
-    .list {
-      margin: 2.3em 0 1.1em 0;
-      padding: 0;
-      list-style: none;
+    .header {
+      position: sticky; top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      z-index: 10;
+      background: var(--bg, #141922);
       display: flex;
-      flex-direction: column;
-      gap: 0.7em;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 2vw;
+      border-bottom: 1px solid var(--border, #232c3c);
+      transition: background var(--transition), border-color var(--transition);
     }
-    .entry {
-      background: var(--accent-bg);
-      border: 1.2px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.06em 1.2em;
-      font-size: 1.08em;
-      color: var(--accent-dark);
-      font-family: var(--mono);
-      font-weight: 600;
-      letter-spacing: 0.01em;
+    .theme-toggle {
+      margin-left: auto;
       cursor: pointer;
-      transition: background 0.16s, color 0.14s, border 0.14s;
-      text-decoration: none;
-      display: block;
       outline: none;
-      box-shadow: var(--shadow);
+      display: flex; align-items: center; justify-content: center;
+      height: 36px; width: 36px;
+      border-radius: 50%;
+      background: none;
+      border: none;
+      transition: background var(--transition);
       position: relative;
     }
-    .entry:after {
-      content: '→';
-      float: right;
-      font-size: 1em;
-      color: var(--muted);
-      opacity: 0.6;
-      margin-left: 0.4em;
+    .theme-toggle:focus-visible {
+      box-shadow: 0 0 0 2px var(--accent);
+      background: var(--accent-light);
+    }
+    .theme-toggle svg {
+      width: 24px; height: 24px; display: block;
+      transition: color var(--transition), filter var(--transition);
+    }
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      background: var(--container-bg, #171e2d);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.2rem 24px 2.2rem 24px;
+      margin-top: 3vh;
+      margin-bottom: 3vh;
+      box-sizing: border-box;
+      position: relative;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    @media (max-width: 700px) {
+      .container { padding: 2rem 24px 2rem 24px; }
+    }
+    @media (max-width: 450px) {
+      .container { padding: 1.25rem 16px 1.25rem 16px; }
+      .header { padding: 0 1vw; }
+    }
+    .home-title {
+      font-size: 2.25rem;
       font-family: var(--mono);
-      transition: color 0.16s;
-    }
-    .entry:hover, .entry:focus-visible {
-      background: #eaf7fc;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.45em;
       color: var(--accent);
-      border-color: var(--accent);
+      text-align: center;
     }
-    .entry:hover:after, .entry:focus-visible:after {
-      color: var(--accent);
+    .home-desc {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--gray);
+      font-size: 1.1rem;
     }
-    .back-btn {
-      margin: 1.1em 0 0.4em 0;
-      background: var(--accent-bg);
-      color: var(--accent-dark);
-      border: 1px solid var(--accent);
-      border-radius: 8px;
-      padding: 0.38em 1em;
-      font-size: 1em;
-      font-family: var(--mono);
-      font-weight: 600;
+    .apps-list {
+      display: flex; flex-direction: column; gap: 1.2rem;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 420px;
+    }
+    .app-card {
+      border-radius: 14px;
+      background: var(--card, #191f2e);
+      padding: 1.35em 1.3em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border, #232c3c);
       cursor: pointer;
-      box-shadow: none;
-      transition: background 0.15s, color 0.15s, border 0.13s;
+      transition: box-shadow var(--transition), border var(--transition), background var(--transition);
+      text-decoration: none;
+      color: inherit;
+      display: flex; flex-direction: column;
+      gap: 0.32em;
+      font-size: 1.1rem;
+      position: relative;
+      min-height: 64px;
     }
-    .back-btn:hover, .back-btn:focus-visible {
+    .app-card-title {
+      font-family: var(--mono);
+      font-size: 1.11rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.14em;
+    }
+    .app-card-desc {
+      color: var(--gray);
+      font-size: 1.01rem;
+      margin-bottom: 0.18em;
+    }
+    .app-card:after {
+      content: '→';
+      position: absolute; right: 18px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+      font-size: 1.25em;
+      opacity: 0.66;
+      transition: color var(--transition);
+    }
+    .app-card:hover, .app-card:focus-visible {
+      box-shadow: 0 4px 18px 0 rgba(73,183,248,0.08);
+      border-color: var(--accent);
+      background: #20263c;
+      outline: none;
+    }
+    .app-card:hover:after, .app-card:focus-visible:after {
+      color: var(--accent);
+    }
+    .center-col {
+      display: flex; flex-direction: column; align-items: center; width: 100%;
+    }
+    .app-main-title {
+      font-size: 2rem;
+      font-family: var(--mono);
+      font-weight: 700;
+      margin-bottom: 0.18em;
+      color: var(--accent);
+      text-align: center;
+      margin-top: 0.3em;
+    }
+    .app-main-desc {
+      font-size: 1.13rem;
+      color: var(--gray);
+      margin-bottom: 1.3em;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .app-links {
+      display: flex;
+      gap: 1.3em;
+      margin: 1.3em 0 0.7em 0;
+      justify-content: center;
+    }
+    .app-link-btn {
       background: var(--accent);
       color: #fff;
-      border-color: var(--accent-dark);
-    }
-    ul, p, li {
-      color: var(--text);
-      margin: 0.13em 0 0.6em 0;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--mono);
+      font-weight: 700;
       font-size: 1em;
+      padding: 0.75em 1.15em;
+      text-decoration: none;
+      transition: background var(--transition), box-shadow var(--transition);
+      box-shadow: 0 2px 10px 0 rgba(73,183,248,0.08);
+      cursor: pointer;
+      outline: none;
+      display: flex; align-items: center; gap: 0.55em;
     }
-    ul {
-      padding-left: 1.17em;
-      margin-bottom: 0.5em;
+    .app-link-btn:focus-visible, .app-link-btn:hover {
+      background: var(--accent-light);
+      color: #1a1d25;
     }
-    li {
-      margin: 0 0 0.18em 0;
+    .app-doc-links {
+      display: flex; gap: 2em; margin: 2.3em 0 0 0; justify-content: center; flex-wrap: wrap;
     }
-    a {
-      color: var(--accent-dark);
-      text-decoration: underline;
-      word-break: break-all;
-      transition: color 0.13s;
-    }
-    a:hover, a:focus-visible {
+    .app-doc-link {
       color: var(--accent);
+      font-family: var(--mono);
+      font-weight: 600;
+      text-decoration: underline;
+      font-size: 1em;
+      transition: color var(--transition);
+      cursor: pointer;
+      outline: none;
+      padding: 0.1em 0.3em;
+      border-radius: 5px;
+    }
+    .app-doc-link:focus-visible, .app-doc-link:hover {
+      background: var(--accent-bg, #162334);
+      color: #fff;
+    }
+    .doc-page {
+      background: #fff;
+      color: #181b23;
+      border-radius: var(--radius);
+      max-width: var(--max-width);
+      margin: 3vh auto;
+      padding: 2.3rem 24px 2.3rem 24px;
+      box-sizing: border-box;
+      position: relative;
+      box-shadow: var(--shadow);
+      transition: background var(--transition), color var(--transition);
+      min-height: 82vh;
+      display: flex; flex-direction: column; align-items: center;
+      animation: docIn 0.22s;
+    }
+    @keyframes docIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .doc-content {
+      width: 100%; max-width: 520px;
+      margin: 0 auto; text-align: left;
+      font-size: 1.04rem;
+    }
+    .doc-close-btn {
+      position: absolute;
+      top: 18px; left: 20px;
+      background: none;
+      border: none;
+      color: var(--danger);
+      font-size: 2em;
+      cursor: pointer;
+      line-height: 1;
+      z-index: 2;
+      transition: background 0.13s, color 0.13s;
+      border-radius: 50%;
+      padding: 0.1em 0.25em;
+    }
+    .doc-close-btn:hover, .doc-close-btn:focus-visible {
+      background: #ffeaea;
+      color: #ad162f;
+      outline: none;
+    }
+    @media (max-width: 650px) {
+      .doc-content, .doc-page, .container { padding-left: 10px; padding-right: 10px;}
+      .doc-page { padding-top: 2.3rem; }
+    }
+    @media (max-width: 450px) {
+      .container, .doc-page { border-radius: 0; margin-top: 0.7em; margin-bottom: 0.7em; }
+      .doc-content, .container, .doc-page { padding-left: 6px; padding-right: 6px;}
     }
     .footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.97em;
-      margin: 2.3em 0 0 0;
+      color: var(--gray);
+      font-size: 0.98em;
+      margin: 2.6em 0 0 0;
       letter-spacing: 0.01em;
       font-weight: 400;
+      width: 100vw;
       max-width: 100vw;
+      text-align: center;
+      padding: 0 1em 2em 1em;
       word-break: break-word;
       white-space: pre-line;
       line-height: 1.5;
-      padding: 0 0.5em;
       display: block;
     }
-    @media (max-width: 600px) {
-      #root {
-        padding: 1rem 0.07rem 0.8rem 0.07rem;
-      }
-      .card {
-        padding: 0.85rem 0.39rem 0.55rem 0.39rem;
-      }
-      h1 {
-        font-size: 1.07rem;
-      }
-      h2 {
-        font-size: 0.97rem;
-      }
-    }
+    .hide { display: none !important; }
   </style>
 </head>
 <body>
+  <div class="header">
+    <button class="theme-toggle" id="theme-toggle" title="Switch theme" tabindex="0">
+      <!-- Icon inserted by JS -->
+    </button>
+  </div>
   <div id="root"></div>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script>
-    // Use hash-based routing to avoid GitHub Pages 404s
-    function getRouteFromHash() {
-      return (window.location.hash || "").replace(/^#\/?/, "");
-    }
-    const policies = {
-      pix: {
-        title: "Pix App",
-        url: "pix",
-        content: React.createElement(React.Fragment, null,
-          React.createElement("h1", null, "Pix App Privacy Policy"),
-          React.createElement("p", null, React.createElement("b", null, "Effective Date:"), " 28 May 2025"),
-          React.createElement("p", null,
-            "Thank you for using ",
-            React.createElement("strong", null, "Pix"),
-            ", a real-time image pixelization and styles app for Android, created and operated by an indie developer. This Privacy Policy explains how your data is handled in the Pix app."
-          ),
-          React.createElement("h2", null, "Authentication and Account Information"),
-          React.createElement("p", null,
-            "Pix offers sign-in via Google or email and password, using ",
-            React.createElement("a", {href:"https://firebase.google.com/products/auth", target:"_blank", rel:"noopener"}, "Firebase Authentication"),
-            " as a secure authentication provider. When you sign in, basic information such as your email address, display name, and profile picture (for Google Sign-In) is collected and securely managed by Firebase."
-          ),
-          React.createElement("ul", null,
-            React.createElement("li", null, "Your authentication data is used solely for providing access to app features and subscriptions."),
-            React.createElement("li", null, "Your password (if using email + password) is never visible to the app developer and is securely stored by Firebase."),
-            React.createElement("li", null, "Your account information is not shared with any third parties or used for marketing purposes."),
-            React.createElement("li", null, "For more information, see ",
-              React.createElement("a", {href:"https://firebase.google.com/support/privacy", target:"_blank", rel:"noopener"}, "Firebase Privacy and Security"), ".")
-          ),
-          React.createElement("h2", null, "Account Deletion"),
-          React.createElement("p", null, "You may delete your Pix account at any time:"),
-          React.createElement("ul", null,
-            React.createElement("li", null, "Via the app’s Profile page, using the “Delete Account” option (if available in your version)."),
-            React.createElement("li", null, "Or by sending a deletion request from your registered email address to ",
-              React.createElement("a", {href:"mailto:devmobileuae@gmail.com"}, "devmobileuae@gmail.com"),
-              ". Your account and associated authentication information will be permanently deleted from Firebase within 30 days of your request.")
-          ),
-          React.createElement("p", null,
-            "After your account is deleted, your authentication information (email, display name, and profile picture) will be removed and cannot be recovered. This action is permanent."
-          ),
-          React.createElement("h2", null, "Information Collection"),
-          React.createElement("ul", null,
-            React.createElement("li", null, React.createElement("b", null, "Images:"), " Your photos are processed locally and never leave your device."),
-            React.createElement("li", null, React.createElement("b", null, "Analytics:"), " Pix may use anonymous analytics (such as Google Play Console statistics) to understand general app usage (e.g., installs, crashes). No personal or identifying data is collected for analytics."),
-            React.createElement("li", null, React.createElement("b", null, "Payments:"), " Subscriptions and payments are managed securely through Google Play. Pix does not process or store your payment details.")
-          ),
-          React.createElement("h2", null, "Sharing Content"),
-          React.createElement("p", null,
-            "Pix allows you to share images and creations directly to social networks or other apps using your device's standard sharing features. The app does not upload your shared content to its own servers. When you choose to share, your images or creations are sent only to the apps and services you select."
-          ),
-          React.createElement("h2", null, "Data Sharing"),
-          React.createElement("p", null,
-            "Pix does not share your data with third parties. Your images, edits, and any app usage data remain private."
-          ),
-          React.createElement("h2", null, "Permissions"),
-          React.createElement("p", null,
-            "Pix requests permission to access your camera and photos only to allow you to pixelate images and apply styles. These permissions are used solely for app functionality."
-          ),
-          React.createElement("h2", null, "Children's Privacy"),
-          React.createElement("p", null,
-            "Pix is not intended for children under 13. No information is knowingly collected from children."
-          ),
-          React.createElement("h2", null, "Changes to Policy"),
-          React.createElement("p", null,
-            "This policy may be updated in the future. Significant changes will be announced in the app or on this page."
-          ),
-          React.createElement("h2", null, "Contact"),
-          React.createElement("p", null,
-            "For questions about this Privacy Policy or how your data is handled, contact: ",
-            React.createElement("a", {href:"mailto:devmobileuae@gmail.com"}, "devmobileuae@gmail.com")
-          )
-        )
-      },
-      // Add more apps here if needed!
-    };
-
-    function usePolicyRouting() {
-      const [route, setRoute] = React.useState(getRouteFromHash());
-
-      React.useEffect(() => {
-        const handler = () => setRoute(getRouteFromHash());
-        window.addEventListener("hashchange", handler);
-        return () => window.removeEventListener("hashchange", handler);
-      }, []);
-
-      const goHome = React.useCallback(() => {
-        window.location.hash = '';
-      }, []);
-      const goPolicy = React.useCallback((key) => {
-        window.location.hash = '/' + policies[key].url;
-      }, []);
-      return {route, goHome, goPolicy};
-    }
-
-    function App() {
-      const {route, goHome, goPolicy} = usePolicyRouting();
-
-      if (!route) {
-        return (
-          React.createElement("div", null,
-            React.createElement("h1", null, "Privacy Policies"),
-            React.createElement("ul", {className:"list"},
-              Object.entries(policies).map(([key, {title, url}]) =>
-                React.createElement("li", {key},
-                  React.createElement("a", {
-                    className:"entry",
-                    href:`#/${url}`,
-                    onClick: e => { e.preventDefault(); goPolicy(key); }
-                  }, title)
-                )
-              )
-            ),
-            React.createElement("div", {className:"footer"},
-              "© 2025 devmobileuae\nFor questions, contact ",
-              React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
-            )
-          )
-        );
+    // --- THEME ---
+    const prefersDark = () =>
+      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    function setTheme(dark) {
+      if (dark) {
+        document.documentElement.style.setProperty('--bg', '#141922');
+        document.documentElement.style.setProperty('--container-bg', '#171e2d');
+        document.documentElement.style.setProperty('--fg', '#e8eef7');
+        document.documentElement.style.setProperty('--card', '#191f2e');
+        document.documentElement.style.setProperty('--border', '#232c3c');
       } else {
-        const {content} = policies[route];
-        return (
-          React.createElement("div", {className:"card"},
-            React.createElement("button", {className:"back-btn", onClick:goHome}, "← Back to list"),
-            content,
-            React.createElement("div", {className:"footer", style:{marginTop:24}},
-              React.createElement("a", {
-                href:"#/",
-                onClick: e => {e.preventDefault(); goHome();}
-              }, "← Back to all privacy policies")
-            )
-          )
-        );
+        document.documentElement.style.setProperty('--bg', '#fafbfc');
+        document.documentElement.style.setProperty('--container-bg', '#fff');
+        document.documentElement.style.setProperty('--fg', '#232427');
+        document.documentElement.style.setProperty('--card', '#fff');
+        document.documentElement.style.setProperty('--border', '#e1e4ea');
       }
     }
+    // Theme state
+    let theme = localStorage.getItem('theme');
+    if (theme === null) {
+      theme = prefersDark() ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+    }
+    setTheme(theme === 'dark');
+    // Icon
+    function renderThemeIcon() {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+      toggle.innerHTML = theme === 'dark'
+        ? '<svg fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#fff" opacity="0.8"/><path d="M2 12a10 10 0 0 0 17.32 6.67A9 9 0 0 1 12 2a10 10 0 0 0-10 10z" fill="#45cafc"/></svg>'
+        : '<svg fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="#ffe354"/><g stroke="#ffc500" stroke-width="2"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></g></svg>';
+    }
+    function updateTheme(to) {
+      theme = to;
+      localStorage.setItem('theme', theme);
+      setTheme(theme === 'dark');
+      renderThemeIcon();
+    }
+    document.addEventListener('DOMContentLoaded', renderThemeIcon);
+    window.onload = renderThemeIcon;
+    document.getElementById('theme-toggle').onclick = () => {
+      updateTheme(theme === 'dark' ? 'light' : 'dark');
+    };
 
+    // --- ROUTING ---
+    function getRoute() {
+      const hash = window.location.hash || '';
+      // #/ | #/pix | #/pix/privacy | #/pix/terms
+      const m = hash.match(/^#\/([a-z0-9-]+)?\/?(privacy|terms)?$/i);
+      if (!m || !m[1]) return {page: 'home'};
+      return {
+        page: m[2] === 'privacy' || m[2] === 'terms' ? 'doc' : 'app',
+        app: m[1],
+        doc: m[2] || null,
+      };
+    }
+    // --- APP DATA ---
+    const apps = {
+      pix: {
+        id: "pix",
+        name: "Pix",
+        description: "Pixelate photos in real time, apply art palettes, and share your creations!",
+        longDescription:
+          "Say hello to Pix – your pocket pixel art playground!\n\nSnap a selfie or pick any photo, then pixelate it instantly for that awesome retro or artsy look. Want to stand out? Mix in color palettes inspired by legends like Mona Lisa, Van Gogh, and more. It’s like remixing classic masterpieces with your own photos!\n\nWhy you’ll love Pix:\n- 📷 Pixelate live with your camera – see the magic in real time!\n- 🖼️ Pixelate any photo from your gallery, old or new\n- 🎨 Drop in wild color vibes from iconic paintings (Mona Lisa, Starry Night, and friends)\n- 💡 All processing happens right on your device – fast & private\n- 🚀 Share your pixel creations anywhere in a tap – show off your art!\n\nWhether you want a pixel-perfect profile pic, a fun way to hide your face, or a unique way to share your style, Pix is pure pixel joy. Make your world more playful – one pixel at a time!",
+        links: {
+          googleplay: '', // Add your Google Play link here
+          appstore: '',   // Add your App Store link here
+        },
+        privacyPolicy: 'pix_privacy',
+        terms: 'pix_terms'
+      }
+      // Add more apps here
+    };
+    // --- PRIVACY POLICY (YOUR FULL TEXT PRESERVED) ---
+    const privacyPolicies = {
+      pix_privacy: React.createElement(React.Fragment, null,
+        React.createElement("h1", null, "Pix App Privacy Policy"),
+        React.createElement("p", null, React.createElement("b", null, "Effective Date:"), " 28 May 2025"),
+        React.createElement("p", null,
+          "Thank you for using ",
+          React.createElement("strong", null, "Pix"),
+          ", a real-time image pixelization and styles app for Android, created and operated by an indie developer. This Privacy Policy explains how your data is handled in the Pix app."
+        ),
+        React.createElement("h2", null, "Authentication and Account Information"),
+        React.createElement("p", null,
+          "Pix offers sign-in via Google or email and password, using ",
+          React.createElement("a", {href:"https://firebase.google.com/products/auth", target:"_blank", rel:"noopener"}, "Firebase Authentication"),
+          " as a secure authentication provider. When you sign in, basic information such as your email address, display name, and profile picture (for Google Sign-In) is collected and securely managed by Firebase."
+        ),
+        React.createElement("ul", null,
+          React.createElement("li", null, "Your authentication data is used solely for providing access to app features and subscriptions."),
+          React.createElement("li", null, "Your password (if using email + password) is never visible to the app developer and is securely stored by Firebase."),
+          React.createElement("li", null, "Your account information is not shared with any third parties or used for marketing purposes."),
+          React.createElement("li", null, "For more information, see ",
+            React.createElement("a", {href:"https://firebase.google.com/support/privacy", target:"_blank", rel:"noopener"}, "Firebase Privacy and Security"), ".")
+        ),
+        React.createElement("h2", null, "Account Deletion"),
+        React.createElement("p", null, "You may delete your Pix account at any time:"),
+        React.createElement("ul", null,
+          React.createElement("li", null, "Via the app’s Profile page, using the “Delete Account” option (if available in your version)."),
+          React.createElement("li", null, "Or by sending a deletion request from your registered email address to ",
+            React.createElement("a", {href:"mailto:devmobileuae@gmail.com"}, "devmobileuae@gmail.com"),
+            ". Your account and associated authentication information will be permanently deleted from Firebase within 30 days of your request.")
+        ),
+        React.createElement("p", null,
+          "After your account is deleted, your authentication information (email, display name, and profile picture) will be removed and cannot be recovered. This action is permanent."
+        ),
+        React.createElement("h2", null, "Information Collection"),
+        React.createElement("ul", null,
+          React.createElement("li", null, React.createElement("b", null, "Images:"), " Your photos are processed locally and never leave your device."),
+          React.createElement("li", null, React.createElement("b", null, "Analytics:"), " Pix may use anonymous analytics (such as Google Play Console statistics) to understand general app usage (e.g., installs, crashes). No personal or identifying data is collected for analytics."),
+          React.createElement("li", null, React.createElement("b", null, "Payments:"), " Subscriptions and payments are managed securely through Google Play. Pix does not process or store your payment details.")
+        ),
+        React.createElement("h2", null, "Sharing Content"),
+        React.createElement("p", null,
+          "Pix allows you to share images and creations directly to social networks or other apps using your device's standard sharing features. The app does not upload your shared content to its own servers. When you choose to share, your images or creations are sent only to the apps and services you select."
+        ),
+        React.createElement("h2", null, "Data Sharing"),
+        React.createElement("p", null,
+          "Pix does not share your data with third parties. Your images, edits, and any app usage data remain private."
+        ),
+        React.createElement("h2", null, "Permissions"),
+        React.createElement("p", null,
+          "Pix requests permission to access your camera and photos only to allow you to pixelate images and apply styles. These permissions are used solely for app functionality."
+        ),
+        React.createElement("h2", null, "Children's Privacy"),
+        React.createElement("p", null,
+          "Pix is not intended for children under 13. No information is knowingly collected from children."
+        ),
+        React.createElement("h2", null, "Changes to Policy"),
+        React.createElement("p", null,
+          "This policy may be updated in the future. Significant changes will be announced in the app or on this page."
+        ),
+        React.createElement("h2", null, "Contact"),
+        React.createElement("p", null,
+          "For questions about this Privacy Policy or how your data is handled, contact: ",
+          React.createElement("a", {href:"mailto:devmobileuae@gmail.com"}, "devmobileuae@gmail.com")
+        )
+      ),
+      // You can add more policy pages for other apps here.
+    };
+    // --- TERMS PAGE (placeholder) ---
+    const termsDocs = {
+      pix_terms: React.createElement(React.Fragment, null,
+        React.createElement("h1", null, "Pix App Terms of Use"),
+        React.createElement("p", null, "Coming soon.")
+      )
+    };
+    // --- MAIN COMPONENTS ---
+    function HomePage({onApp}) {
+      return React.createElement("div", {className:"container center-col"},
+        React.createElement("div", {className:"home-title"}, "devmobileuae"),
+        React.createElement("div", {className:"home-desc"},
+          "Hey! 👋\n\nI’m an indie mobile developer. I create privacy-friendly, fun and useful mobile apps for everyone. Check out what I’ve built:"
+        ),
+        React.createElement("div", {className:"apps-list"},
+          Object.values(apps).map(app =>
+            React.createElement("a", {
+              className:"app-card", href:`#/`+app.id, key:app.id, onClick: e => { e.preventDefault(); onApp(app.id); }
+            },
+              React.createElement("div", {className:"app-card-title"}, app.name),
+              React.createElement("div", {className:"app-card-desc"}, app.description)
+            )
+          )
+        ),
+        React.createElement("div", {className:"footer"},
+          "© 2025 devmobileuae\nFor questions: ",
+          React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
+        )
+      );
+    }
+    function AppPage({app, onDoc, onBack}) {
+      return React.createElement("div", {className:"container center-col"},
+        React.createElement("button", {className:"back-btn", style:{alignSelf:'flex-start',marginBottom:'1.6em'}, onClick:onBack}, "← Back"),
+        React.createElement("div", {className:"app-main-title"}, app.name),
+        React.createElement("div", {className:"app-main-desc"},
+          app.longDescription.split('\n').map((str,i) => React.createElement("span",{key:i},str,React.createElement("br",null)))
+        ),
+        React.createElement("div", {className:"app-links"},
+          app.links.googleplay && React.createElement("a", {className:"app-link-btn", href:app.links.googleplay, target:"_blank", rel:"noopener"}, "Google Play"),
+          app.links.appstore && React.createElement("a", {className:"app-link-btn", href:app.links.appstore, target:"_blank", rel:"noopener"}, "App Store")
+        ),
+        React.createElement("div", {className:"app-doc-links"},
+          React.createElement("a", {className:"app-doc-link", href:`#/${app.id}/privacy`, onClick:e=>{e.preventDefault();onDoc(app.id,'privacy')}}, "Privacy Policy"),
+          React.createElement("a", {className:"app-doc-link", href:`#/${app.id}/terms`, onClick:e=>{e.preventDefault();onDoc(app.id,'terms')}}, "Terms")
+        ),
+        React.createElement("div", {className:"footer"},
+          "© 2025 devmobileuae\nFor questions: ",
+          React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
+        )
+      );
+    }
+    function DocPage({content, onClose}) {
+      return React.createElement("div", {className:"doc-page"},
+        React.createElement("button", {className:"doc-close-btn", onClick:onClose, title:"Close"}, "×"),
+        React.createElement("div", {className:"doc-content"}, content)
+      );
+    }
+    // --- APP ROOT ---
+    function App() {
+      const [route, setRoute] = React.useState(getRoute());
+      React.useEffect(()=>{
+        const onHash = ()=>setRoute(getRoute());
+        window.addEventListener("hashchange", onHash);
+        return ()=>window.removeEventListener("hashchange", onHash);
+      },[]);
+      // Navigation helpers
+      const navHome = () => { window.location.hash = '#/'; }
+      const navApp = id => { window.location.hash = `#/${id}`; }
+      const navDoc = (id, doc) => { window.location.hash = `#/${id}/${doc}`; }
+      // Render
+      if (route.page === 'home')
+        return React.createElement(HomePage, {onApp:navApp});
+      if (route.page === 'app' && apps[route.app])
+        return React.createElement(AppPage, {app:apps[route.app], onDoc:navDoc, onBack:navHome});
+      if (route.page === 'doc' && apps[route.app]) {
+        const docId = route.doc === 'privacy' ? apps[route.app].privacyPolicy : apps[route.app].terms;
+        const content = route.doc === 'privacy' ? privacyPolicies[docId] : termsDocs[docId] || React.createElement("div", null, "Coming soon.");
+        return React.createElement(DocPage, {content,onClose:()=>navApp(route.app)});
+      }
+      return React.createElement(HomePage, {onApp:navApp});
+    }
     ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
   </script>
 </body>
