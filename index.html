@@ -291,7 +291,18 @@
         },
         privacyPolicy: 'pix_privacy',
         terms: 'pix_terms'
-      }
+      },
+  stretch: {
+    id: "stretch",
+    name: "Stretch",
+    description: "Create beautiful long screenshots by combining and editing multiple images. Add backgrounds, texts, spacing, and scale options — all processed locally on your device.",
+    links: {
+      googleplay: 'google play link will be here',
+      appstore: '',
+    },
+    privacyPolicy: 'stretch_privacy',
+    terms: 'stretch_terms'
+  }
     };
     // ENHANCED PRIVACY POLICY WITH LINKS
     const privacyPolicies = {
@@ -413,7 +424,45 @@ pix_privacy: React.createElement("div", null,
     React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
   ),
   React.createElement("p", null, React.createElement("i", null, "Last updated: June 11, 2025"))
-)
+),
+  stretch_privacy: React.createElement("div", null,
+    React.createElement("h1", null, "Stretch Privacy Policy"),
+    React.createElement("p", null, React.createElement("b", null, "Effective Date:"), " 19 June 2025"),
+    React.createElement("p", null,
+      "Stretch is a mobile app developed and maintained by an individual developer that helps users create long vertical screenshots. You can add, scale, crop, and arrange screenshots; insert texts and spaces; and customize backgrounds — all locally on your device."
+    ),
+    React.createElement("h2", null, "Data Controller"),
+    React.createElement("p", null,
+      "The data controller is the developer: devmobileuae (contact: ",
+      React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com"),
+      "). No user data is transmitted or stored on external servers."
+    ),
+    React.createElement("h2", null, "Data Collection & Storage"),
+    React.createElement("p", null,
+      "Stretch does not upload, collect, or store any personal data, images, or project content. All operations and storage remain on your device."
+    ),
+    React.createElement("h2", null, "Device Permissions"),
+    React.createElement("ul", null,
+      React.createElement("li", null, React.createElement("b", null, "Storage Access:"), " To import and export images from your gallery (optional)")
+    ),
+    React.createElement("h2", null, "Crash Reporting & Analytics"),
+    React.createElement("p", null,
+      "Stretch uses anonymous analytics and crash reporting via ",
+      React.createElement("a", {href:"https://firebase.google.com/docs/crashlytics", target:"_blank", rel:"noopener noreferrer"},"Firebase Crashlytics"),
+      " and ",
+      React.createElement("a", {href:"https://firebase.google.com/docs/analytics", target:"_blank", rel:"noopener noreferrer"},"Firebase Analytics"),
+      " to help improve app performance. These services may use anonymized identifiers. No personally identifying information is collected."
+    ),
+    React.createElement("h2", null, "Children's Privacy"),
+    React.createElement("p", null,
+      "Stretch is not intended for children under 13 years of age. If we become aware of data collected from such users, we will delete it promptly."
+    ),
+    React.createElement("h2", null, "Contact"),
+    React.createElement("p", null, "For privacy concerns, reach out to ",
+      React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
+    ),
+    React.createElement("p", null, React.createElement("i", null, "Last updated: June 19, 2025"))
+  )
     };
     // TERMS (placeholder)
     const termsDocs = {
@@ -511,7 +560,30 @@ pix_terms: React.createElement("div", null,
     "For questions or concerns about these Terms, contact: ",
     React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
   )
-)
+),
+  stretch_terms: React.createElement("div", null,
+    React.createElement("h1", null, "Stretch Terms of Use"),
+    React.createElement("p", null, React.createElement("b", null, "Effective Date:"), " 19 June 2025"),
+    React.createElement("p", null, "By using the Stretch app (\"App\"), you agree to these Terms of Use (\"Terms\"). Please review them carefully."),
+    React.createElement("h2", null, "Usage Terms"),
+    React.createElement("p", null, "Stretch is intended for personal use only. You may not modify, distribute, or exploit the app for commercial purposes without permission."),
+    React.createElement("h2", null, "User Content"),
+    React.createElement("p", null, "You retain full ownership of images and projects you create using Stretch. Content is never shared externally or uploaded to any server."),
+    React.createElement("h2", null, "Intellectual Property"),
+    React.createElement("p", null, "All intellectual property in the app (design, code, UI) is owned by the developer. You are granted a limited license to use the app as intended."),
+    React.createElement("h2", null, "Third-Party Services"),
+    React.createElement("p", null, "Stretch integrates Firebase Crashlytics and Analytics for diagnostics and performance tracking. These services are subject to their own terms and policies."),
+    React.createElement("h2", null, "Limitation of Liability"),
+    React.createElement("p", null, "The app is provided \"as is\" without any warranty. The developer is not liable for any loss or damage arising from your use of the app."),
+    React.createElement("h2", null, "Termination"),
+    React.createElement("p", null, "The developer reserves the right to suspend or discontinue the app at any time without notice."),
+    React.createElement("h2", null, "Changes"),
+    React.createElement("p", null, "Terms may be updated occasionally. Continued use of the app constitutes acceptance of any updates."),
+    React.createElement("h2", null, "Contact"),
+    React.createElement("p", null, "For any questions or feedback, contact ",
+      React.createElement("a", {href:"mailto:devmobileuae@gmail.com"},"devmobileuae@gmail.com")
+    )
+  )
     };
     // MAIN COMPONENTS
     function HomePage({onApp, dark, setDark}) {
