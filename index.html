@@ -128,6 +128,14 @@
       outline: none;
       transition: color 0.14s;
       text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .app-btn img {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
     }
     .app-btn:focus-visible, .app-btn:hover { color: #6b2cc6; }
     .dark {
@@ -163,6 +171,33 @@
       letter-spacing: 0.03em;
       font-weight: 400;
       max-width: 420px;
+      margin-bottom: 2rem;
+    }
+    .app-main-image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .app-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+      gap: 1rem;
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .app-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .app-gallery img:hover {
+      transform: scale(1.02);
     }
     .app-links-row {
       display: flex;
@@ -286,7 +321,7 @@
         name: "Pix",
         description: "Pixelate photos with AI in real time, apply palettes from art masterpieces and share your creations!",
         links: {
-          googleplay: 'google play link will be here', 
+          googleplay: 'https://play.google.com/store/apps/details?id=com.devmobileuae.pix', 
           appstore: '', 
         },
         privacyPolicy: 'pix_privacy',
@@ -489,7 +524,7 @@ pix_terms: React.createElement("div", null,
 
   React.createElement("h2", null, "Subscriptions"),
   React.createElement("p", null,
-    "Some features require a paid subscription. Subscription fees are processed through your device’s app store (Google Play or App Store) and are subject to their terms, including refund policies. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period. You are responsible for managing your subscription and cancellation through your app store account settings."
+    "Some features require a paid subscription. Subscription fees are processed through your device's app store (Google Play or App Store) and are subject to their terms, including refund policies. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period. You are responsible for managing your subscription and cancellation through your app store account settings."
   ),
 
   React.createElement("h2", null, "Intellectual Property"),
@@ -522,7 +557,7 @@ pix_terms: React.createElement("div", null,
     "The App is provided \"as is\" and \"as available\" without warranties of any kind, either express or implied. The developer does not guarantee uninterrupted or error-free operation. To the fullest extent permitted by law, we disclaim all liability for any damages arising from your use of the App, including direct, indirect, incidental, consequential, or punitive damages."
   ),
   React.createElement("p", null,
-    "In no event shall the developer’s total liability exceed the subscription fees paid by you in the twelve (12) months preceding the claim."
+    "In no event shall the developer's total liability exceed the subscription fees paid by you in the twelve (12) months preceding the claim."
   ),
 
   React.createElement("h2", null, "Indemnification"),
@@ -599,7 +634,10 @@ pix_terms: React.createElement("div", null,
               React.createElement("button", {
                 className:"app-btn", key:app.id,
                 onClick:()=>onApp(app.id)
-              }, app.name)
+              }, 
+                app.id === 'pix' ? React.createElement("img", {src: "screenshots-pix/icon.png", alt: "Pix Icon"}) : null,
+                app.name
+              )
             )
           )
         )
@@ -609,7 +647,26 @@ pix_terms: React.createElement("div", null,
       return React.createElement("div", {className:"app-section"},
         React.createElement("button", {className:"doc-back", onClick:onBack, title:"Back"}, "←"),
         React.createElement("div", {className:"app-title"}, app.name),
+        app.links.googleplay ? React.createElement("div", {className:"app-links-row"},
+          React.createElement("a", {
+            className:"app-link",
+            href: app.links.googleplay,
+            target:"_blank",
+            rel:"noopener noreferrer"
+          }, "Google Play")
+        ) : null,
         React.createElement("div", {className:"app-desc"}, app.description),
+        app.id === 'pix' ? React.createElement("img", {
+          className: "app-main-image",
+          src: "screenshots-pix/main.png",
+          alt: "Pix App Screenshot"
+        }) : null,
+        app.id === 'pix' ? React.createElement("div", {className: "app-gallery"},
+          React.createElement("img", {src: "screenshots-pix/1.png", alt: "Pix Screenshot 1"}),
+          React.createElement("img", {src: "screenshots-pix/2.png", alt: "Pix Screenshot 2"}),
+          React.createElement("img", {src: "screenshots-pix/3.png", alt: "Pix Screenshot 3"}),
+          React.createElement("img", {src: "screenshots-pix/4.png", alt: "Pix Screenshot 4"})
+        ) : null,
         React.createElement("div", {className:"app-links-row"},
           React.createElement("button", {className:"app-link", onClick:()=>onDoc(app.id,'privacy')}, "Privacy Policy"),
           React.createElement("button", {className:"app-link", onClick:()=>onDoc(app.id,'terms')}, "Terms")
